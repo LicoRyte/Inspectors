@@ -11,5 +11,10 @@ config_version=5
 [application]
 
 config/name="Inspector's Table"
+run/main_scene="uid://fl1o4ax01mmc"
 config/features=PackedStringArray("4.4", "Forward Plus")
 config/icon="res://icon.svg"
+
+[autoload]
+
+Scene="*res://SingletonScript/SceneChanger.tscn"

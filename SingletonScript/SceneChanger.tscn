@@ -1,0 +1,11 @@
+[gd_scene load_steps=2 format=3 uid="uid://dr6bm0s2lcdf6"]
+
+[ext_resource type="Script" uid="uid://b1dy03pm1ly5i" path="res://SingletonScript/SceneChanger.gd" id="1_dufpi"]
+
+[node name="SceneChanger" type="Node"]
+script = ExtResource("1_dufpi")
+
+[node name="ColorRect" type="ColorRect" parent="."]
+modulate = Color(0, 0, 0, 1)
+offset_right = 1151.0
+offset_bottom = 648.0
