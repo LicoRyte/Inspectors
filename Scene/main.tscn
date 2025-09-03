@@ -1,8 +1,9 @@
-[gd_scene load_steps=7 format=3 uid="uid://b7awc58wyu86w"]
+[gd_scene load_steps=8 format=3 uid="uid://b7awc58wyu86w"]
 
 [ext_resource type="Script" uid="uid://do3s2fg5n1wqq" path="res://Class/Employee.gd" id="1_f6udf"]
 [ext_resource type="Shader" uid="uid://kto613kc87lg" path="res://Shader/outline.gdshader" id="1_sblpm"]
 [ext_resource type="Texture2D" uid="uid://cxaegtnlu536d" path="res://Assets/clancies.png" id="3_r34rm"]
+[ext_resource type="Script" uid="uid://uxpqgbvuhwk1" path="res://Script/AdvancedCamera.gd" id="4_2wwxx"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_sblpm"]
 shader = ExtResource("1_sblpm")
@@ -30,7 +31,7 @@ shader_parameter/number_of_images = Vector2(1, 1)
 [node name="main" type="Node2D"]
 
 [node name="Fyodor" type="Area2D" parent="." node_paths=PackedStringArray("Visual_Node")]
-position = Vector2(81, 56)
+position = Vector2(210, 189)
 scale = Vector2(8.21724, 5.00976)
 script = ExtResource("1_f6udf")
 Visual_Node = NodePath("sprite1")
@@ -47,7 +48,7 @@ position = Vector2(9.24885, 6.18792)
 shape = SubResource("RectangleShape2D_sblpm")
 
 [node name="Remy" type="Area2D" parent="." node_paths=PackedStringArray("Visual_Node")]
-position = Vector2(369, 110)
+position = Vector2(479, 195)
 scale = Vector2(8.21724, 5.00976)
 script = ExtResource("1_f6udf")
 employee_number = 1
@@ -65,7 +66,7 @@ position = Vector2(9.24885, 6.18792)
 shape = SubResource("RectangleShape2D_sblpm")
 
 [node name="Guide" type="Area2D" parent="." node_paths=PackedStringArray("Visual_Node")]
-position = Vector2(771, 132)
+position = Vector2(806, 199)
 scale = Vector2(8.21724, 5.00976)
 script = ExtResource("1_f6udf")
 employee_number = 2
@@ -80,6 +81,10 @@ texture = ExtResource("3_r34rm")
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Guide"]
 position = Vector2(9.24885, 6.18792)
 shape = SubResource("RectangleShape2D_sblpm")
+
+[node name="Camera2D" type="Camera2D" parent="."]
+position = Vector2(640, 360)
+script = ExtResource("4_2wwxx")
 
 [connection signal="input_event" from="Fyodor" to="Fyodor" method="_on_input_event"]
 [connection signal="mouse_entered" from="Fyodor" to="Fyodor" method="_on_mouse_entered"]

@@ -1,0 +1,58 @@
+[gd_scene load_steps=3 format=3 uid="uid://cxywpmqbj5bua"]
+
+[ext_resource type="FontFile" uid="uid://cl1lla7t28egr" path="res://Assets/Fonts/PublicPixel-rv0pA.ttf" id="1_afqsb"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_uu1jk"]
+bg_color = Color(0.0470588, 0.0431373, 0.00392157, 0.423529)
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+border_color = Color(0.171169, 0.169791, 0.0300328, 1)
+
+[node name="CanvasLayer" type="CanvasLayer"]
+
+[node name="TextBoxContainer" type="MarginContainer" parent="."]
+anchors_preset = 12
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = -169.0
+offset_right = -25.0
+grow_horizontal = 2
+grow_vertical = 0
+scale = Vector2(1.01881, 0.997632)
+theme_override_constants/margin_left = 540
+theme_override_constants/margin_right = 48
+theme_override_constants/margin_bottom = 48
+
+[node name="Panel" type="Panel" parent="TextBoxContainer"]
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_uu1jk")
+
+[node name="MarginContainer" type="MarginContainer" parent="TextBoxContainer"]
+layout_mode = 2
+theme_override_constants/margin_left = 16
+theme_override_constants/margin_top = 16
+theme_override_constants/margin_right = 16
+theme_override_constants/margin_bottom = 16
+
+[node name="Panel" type="Panel" parent="TextBoxContainer/MarginContainer"]
+visible = false
+layout_mode = 2
+
+[node name="HBoxContainer" type="HBoxContainer" parent="TextBoxContainer/MarginContainer"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="TextBoxContainer/MarginContainer/HBoxContainer"]
+custom_minimum_size = Vector2(1, 1)
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 1
+theme_override_constants/line_spacing = 8
+theme_override_fonts/font = ExtResource("1_afqsb")
+theme_override_font_sizes/font_size = 12
+text = "Hello, my name is fyodor humyai lol
+Game by Dream Team
+Art & Graphics by Dream Team of course!"
+autowrap_mode = 2

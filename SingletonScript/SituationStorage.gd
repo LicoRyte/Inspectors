@@ -12,34 +12,45 @@ var transcript = {
 }
 
 var situation = {
-	1 : {
-		"ID1" : {
-			"name" : "Peam",
-			"message" : "ARRRRRR",
-			"transcript_sprite" : null,
+	1: {
+		"ID1": {
+			"Intro": "Peam",
+			"transcripts": [
+			"A",
+			"B", 
+			"C", 
+			"D", 
+			"E", 
+			"F"
+			],
+			"transcript_sprite": null,
+			"is_corrupted": false
 		},
-		"ID2" : {
-			"name" : "Guide",
-			"message" : "Kuy",
-			"transcript_sprite" : null,
+		"ID2": {
+			"Intro": "Guide",
+			"transcripts": [
+			"G", 
+			"H", 
+			"I", 
+			"J", 
+			"K", 
+			"L"
+			],
+			"transcript_sprite": null,
+			"is_corrupted": false
 		},
-		"ID3" : {
-			"name" : "Tae",
-			"message" : "Dev Test Dialogue",
-			"transcript_sprite" : null,
-		},
-
-	},
-	
-	
-	
-	2 : {
-		
-	},
-	
-	
-	
-	3 : {
-		
+		"ID3": {
+			"Intro": "Tae",
+			"transcripts": [
+			"G", 
+			"H", 
+			"I", 
+			"J", 
+			"K",
+			"L"
+			],
+			"transcript_sprite": null,
+			"is_corrupted": false
+		}
 	}
 }
