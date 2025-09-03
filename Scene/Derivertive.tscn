@@ -1,6 +1,0 @@
-[gd_scene load_steps=2 format=3 uid="uid://fl1o4ax01mmc"]
-
-[ext_resource type="Script" uid="uid://dj8siv4uqpqo1" path="res://Script/derivertive.gd" id="1_rtyyf"]
-
-[node name="Derivertive" type="Node2D"]
-script = ExtResource("1_rtyyf")

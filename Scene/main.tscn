@@ -1,0 +1,92 @@
+[gd_scene load_steps=7 format=3 uid="uid://b7awc58wyu86w"]
+
+[ext_resource type="Script" uid="uid://do3s2fg5n1wqq" path="res://Class/Employee.gd" id="1_f6udf"]
+[ext_resource type="Shader" uid="uid://kto613kc87lg" path="res://Shader/outline.gdshader" id="1_sblpm"]
+[ext_resource type="Texture2D" uid="uid://cxaegtnlu536d" path="res://Assets/clancies.png" id="3_r34rm"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_sblpm"]
+shader = ExtResource("1_sblpm")
+shader_parameter/is_active = false
+shader_parameter/color = Color(1, 1, 1, 1)
+shader_parameter/width = 1.5
+shader_parameter/pattern = 2
+shader_parameter/inside = false
+shader_parameter/add_margins = true
+shader_parameter/number_of_images = Vector2(1, 1)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_sblpm"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_r34rm"]
+resource_local_to_scene = true
+shader = ExtResource("1_sblpm")
+shader_parameter/is_active = false
+shader_parameter/color = Color(1, 1, 1, 1)
+shader_parameter/width = 1.0
+shader_parameter/pattern = 0
+shader_parameter/inside = false
+shader_parameter/add_margins = true
+shader_parameter/number_of_images = Vector2(1, 1)
+
+[node name="main" type="Node2D"]
+
+[node name="Fyodor" type="Area2D" parent="." node_paths=PackedStringArray("Visual_Node")]
+position = Vector2(81, 56)
+scale = Vector2(8.21724, 5.00976)
+script = ExtResource("1_f6udf")
+Visual_Node = NodePath("sprite1")
+metadata/_custom_type_script = "uid://do3s2fg5n1wqq"
+
+[node name="sprite1" type="Sprite2D" parent="Fyodor"]
+material = SubResource("ShaderMaterial_sblpm")
+position = Vector2(9.73563, 5.7887)
+scale = Vector2(0.275213, 0.299098)
+texture = ExtResource("3_r34rm")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Fyodor"]
+position = Vector2(9.24885, 6.18792)
+shape = SubResource("RectangleShape2D_sblpm")
+
+[node name="Remy" type="Area2D" parent="." node_paths=PackedStringArray("Visual_Node")]
+position = Vector2(369, 110)
+scale = Vector2(8.21724, 5.00976)
+script = ExtResource("1_f6udf")
+employee_number = 1
+Visual_Node = NodePath("sprite2")
+metadata/_custom_type_script = "uid://do3s2fg5n1wqq"
+
+[node name="sprite2" type="Sprite2D" parent="Remy"]
+material = SubResource("ShaderMaterial_r34rm")
+position = Vector2(9.85733, 5.7887)
+scale = Vector2(0.275213, 0.299098)
+texture = ExtResource("3_r34rm")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Remy"]
+position = Vector2(9.24885, 6.18792)
+shape = SubResource("RectangleShape2D_sblpm")
+
+[node name="Guide" type="Area2D" parent="." node_paths=PackedStringArray("Visual_Node")]
+position = Vector2(771, 132)
+scale = Vector2(8.21724, 5.00976)
+script = ExtResource("1_f6udf")
+employee_number = 2
+Visual_Node = NodePath("sprite3")
+metadata/_custom_type_script = "uid://do3s2fg5n1wqq"
+
+[node name="sprite3" type="Sprite2D" parent="Guide"]
+position = Vector2(9.85733, 5.7887)
+scale = Vector2(0.275213, 0.299098)
+texture = ExtResource("3_r34rm")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Guide"]
+position = Vector2(9.24885, 6.18792)
+shape = SubResource("RectangleShape2D_sblpm")
+
+[connection signal="input_event" from="Fyodor" to="Fyodor" method="_on_input_event"]
+[connection signal="mouse_entered" from="Fyodor" to="Fyodor" method="_on_mouse_entered"]
+[connection signal="mouse_exited" from="Fyodor" to="Fyodor" method="_on_mouse_exited"]
+[connection signal="input_event" from="Remy" to="Remy" method="_on_input_event"]
+[connection signal="mouse_entered" from="Remy" to="Remy" method="_on_mouse_entered"]
+[connection signal="mouse_exited" from="Remy" to="Remy" method="_on_mouse_exited"]
+[connection signal="input_event" from="Guide" to="Guide" method="_on_input_event"]
+[connection signal="mouse_entered" from="Guide" to="Guide" method="_on_mouse_entered"]
+[connection signal="mouse_exited" from="Guide" to="Guide" method="_on_mouse_exited"]

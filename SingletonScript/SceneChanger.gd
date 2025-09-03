@@ -2,16 +2,12 @@ extends Node
 
 
 
-#Does play but not finished
 @onready var scene_animation: AnimationPlayer = $SceneAnimation
 
 var scene = {
-	"Test1": preload("res://Scene/2dscene.tscn"),
-	"Test2": preload("res://Scene/Derivertive.tscn")
+	"main": preload("res://Scene/main.tscn")
 }
-
 func Change(scene_name):
-
 	if not scene.has(scene_name):
 		print(scene_name, " not cached yet")
 	else:
