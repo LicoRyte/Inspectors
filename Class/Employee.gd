@@ -15,14 +15,22 @@ enum employee_ID {
 @export var message: String= ""
 @export var transcript_sprite: Sprite2D = null
 
+var ID: String
 
-#Interactable Class Function
+func _ready() -> void:
+	match employee_number:
+		employee_ID.one:
+			ID = "ID1"
+		employee_ID.two:
+			ID = "ID2"
+		employee_ID.three:
+			ID = "ID3"
 
 func _on_input_event(_viewport: Node, event: InputEvent, _shape_idx: int) -> void:
 	if not GameManager.selected_employee:
 		if event is InputEventMouseButton and event.pressed:
 			GameManager.selected_employee = self
-			print("Employee Name: " + name)
+			print(Situation.situation[Situation.selected_situation][ID]["name"])
 
 
 func _on_mouse_entered() -> void:

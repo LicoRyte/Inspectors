@@ -20,6 +20,7 @@ config/icon="res://icon.svg"
 Events="*res://SingletonScript/GlobalEvents.gd"
 GameManager="*res://SingletonScript/GameManager.gd"
 Scene="*res://SingletonScript/SceneChanger.tscn"
+Situation="*res://SingletonScript/SituationStorage.gd"
 
 [input]
 

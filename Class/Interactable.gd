@@ -21,4 +21,5 @@ func _on_mouse_exited():
 	do_outline(false)
 
 func do_outline(boo: bool):
+	
 	Visual_Node.material.set_shader_parameter("is_active", boo)
