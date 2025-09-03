@@ -18,6 +18,7 @@ enum employee_ID {
 var ID: String
 
 func _ready() -> void:
+	super()
 	match employee_number:
 		employee_ID.one:
 			ID = "ID1"

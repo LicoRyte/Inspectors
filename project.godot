@@ -22,6 +22,11 @@ GameManager="*res://SingletonScript/GameManager.gd"
 Scene="*res://SingletonScript/SceneChanger.tscn"
 Situation="*res://SingletonScript/SituationStorage.gd"
 
+[display]
+
+window/size/viewport_width=1280
+window/size/viewport_height=720
+
 [input]
 
 click={

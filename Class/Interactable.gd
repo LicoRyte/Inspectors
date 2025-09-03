@@ -5,7 +5,7 @@ class_name Interactable
 
 func _ready():
 	if Visual_Node != null:
-		if Visual_Node.material == null || !Visual_Node.material is ShaderMaterial:
+		if Visual_Node.material == null and !Visual_Node.material is ShaderMaterial:
 			var shader = load("res://Shader/outline.gdshader")
 			var material = ShaderMaterial.new()
 			material.shader = shader
@@ -21,5 +21,4 @@ func _on_mouse_exited():
 	do_outline(false)
 
 func do_outline(boo: bool):
-	
 	Visual_Node.material.set_shader_parameter("is_active", boo)
