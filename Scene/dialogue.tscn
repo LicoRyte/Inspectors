@@ -1,9 +1,10 @@
-[gd_scene load_steps=8 format=3 uid="uid://cxywpmqbj5bua"]
+[gd_scene load_steps=10 format=3 uid="uid://cxywpmqbj5bua"]
 
 [ext_resource type="FontFile" uid="uid://cl1lla7t28egr" path="res://Assets/Fonts/PublicPixel-rv0pA.ttf" id="1_afqsb"]
 [ext_resource type="Script" uid="uid://bc7evgdlrflw6" path="res://Script/dialogue.gd" id="1_qgi3a"]
 [ext_resource type="Texture2D" uid="uid://dywxa7ewarcdt" path="res://Assets/company_placeholder.png" id="2_4wkfl"]
 [ext_resource type="Texture2D" uid="uid://d320888xp37o1" path="res://Assets/blue_trans_placeholder.png" id="3_ve4bg"]
+[ext_resource type="Shader" uid="uid://br0bs5q7ps18g" path="res://Shader/CRT.gdshader" id="5_k6gw1"]
 
 [sub_resource type="PlaceholderTexture2D" id="PlaceholderTexture2D_4wkfl"]
 size = Vector2(480, 32)
@@ -18,6 +19,23 @@ border_color = Color(0.171169, 0.169791, 0.0300328, 1)
 
 [sub_resource type="PlaceholderTexture2D" id="PlaceholderTexture2D_ve4bg"]
 size = Vector2(90, 45)
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_wkfqg"]
+shader = ExtResource("5_k6gw1")
+shader_parameter/exposure = 1.0
+shader_parameter/contrast = 1.05
+shader_parameter/saturation = 0.9
+shader_parameter/enable_pixelate = true
+shader_parameter/pixel_factor = 2.0
+shader_parameter/enable_posterize = true
+shader_parameter/color_levels = 8.0
+shader_parameter/dither_strength = 0.35
+shader_parameter/chrom_aberration = 0.02
+shader_parameter/vignette_strength = 1.5
+shader_parameter/grain_strength = 0.2
+shader_parameter/tint_color = Vector3(0.95, 1.03, 0.9)
+shader_parameter/tint_strength = 0.15
+shader_parameter/viewport_size_override = Vector2(0, 0)
 
 [node name="UI Panel" type="CanvasLayer"]
 script = ExtResource("1_qgi3a")
@@ -38,6 +56,7 @@ anchor_top = 1.0
 anchor_right = 1.0
 anchor_bottom = 1.0
 offset_top = -77.0
+offset_right = 368.0
 grow_horizontal = 2
 grow_vertical = 0
 mouse_filter = 2
@@ -52,14 +71,14 @@ anchors_preset = 12
 anchor_top = 1.0
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_top = -169.0
-offset_right = -25.0
+offset_top = -201.0
+offset_right = -24.0
 grow_horizontal = 2
 grow_vertical = 0
 scale = Vector2(1.01881, 0.997632)
 theme_override_constants/margin_left = 480
-theme_override_constants/margin_right = 48
-theme_override_constants/margin_bottom = 48
+theme_override_constants/margin_right = 96
+theme_override_constants/margin_bottom = 96
 
 [node name="Panel" type="Panel" parent="TextBoxContainer"]
 layout_mode = 2
@@ -150,6 +169,16 @@ offset_left = 930.0
 offset_top = 150.0
 offset_right = 970.0
 offset_bottom = 190.0
+
+[node name="CRT" type="ColorRect" parent="."]
+material = SubResource("ShaderMaterial_wkfqg")
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(1, 0.997939)
+mouse_filter = 2
 
 [connection signal="mouse_entered" from="MarginContainer/company_button" to="." method="_on_company_button_mouse_entered"]
 [connection signal="mouse_exited" from="MarginContainer/company_button" to="." method="_on_company_button_mouse_exited"]
