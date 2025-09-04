@@ -32,6 +32,7 @@ func _ready() -> void:
 			ID = "ID3"
 func _process(delta: float) -> void:
 	if not GameManager.selected_employee or GameManager.selected_employee == flag.get_parent():
+		flag.texture_disabled = flag.texture_normal if not is_voted else flag.texture_pressed
 		flag.disabled = false
 	else:
 		flag.disabled = true
@@ -56,4 +57,5 @@ func _on_mouse_exited() -> void:
 	super()
 
 func _on_flag_toggled(pressed: bool) -> void:
+	is_voted = pressed
 	Events.emit_signal("employee_vote_toggled",ID, pressed)
