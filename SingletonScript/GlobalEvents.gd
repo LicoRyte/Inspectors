@@ -1,5 +1,3 @@
 extends Node
 
-signal clicked
-signal hover_entered
-signal hover_leaved
+signal employee_vote_toggled(id: String, pressed: bool)

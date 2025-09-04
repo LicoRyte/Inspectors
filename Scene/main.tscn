@@ -1,9 +1,11 @@
-[gd_scene load_steps=8 format=3 uid="uid://b7awc58wyu86w"]
+[gd_scene load_steps=10 format=3 uid="uid://b7awc58wyu86w"]
 
 [ext_resource type="Script" uid="uid://do3s2fg5n1wqq" path="res://Class/Employee.gd" id="1_f6udf"]
 [ext_resource type="Shader" uid="uid://kto613kc87lg" path="res://Shader/outline.gdshader" id="1_sblpm"]
 [ext_resource type="Texture2D" uid="uid://cxaegtnlu536d" path="res://Assets/clancies.png" id="3_r34rm"]
 [ext_resource type="Script" uid="uid://uxpqgbvuhwk1" path="res://Script/AdvancedCamera.gd" id="4_2wwxx"]
+[ext_resource type="Texture2D" uid="uid://dhgybc7yb4krl" path="res://Assets/UI/innocent.png" id="4_3amdw"]
+[ext_resource type="Texture2D" uid="uid://bvujj7njkrra8" path="res://Assets/UI/voted.png" id="5_1xcnr"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_sblpm"]
 shader = ExtResource("1_sblpm")
@@ -30,10 +32,11 @@ shader_parameter/number_of_images = Vector2(1, 1)
 
 [node name="main" type="Node2D"]
 
-[node name="Employee1" type="Area2D" parent="." node_paths=PackedStringArray("Visual_Node")]
+[node name="Employee1" type="Area2D" parent="." node_paths=PackedStringArray("flag", "Visual_Node")]
 position = Vector2(210, 189)
 scale = Vector2(8.21724, 5.00976)
 script = ExtResource("1_f6udf")
+flag = NodePath("flag")
 Visual_Node = NodePath("sprite1")
 metadata/_custom_type_script = "uid://do3s2fg5n1wqq"
 
@@ -47,10 +50,21 @@ texture = ExtResource("3_r34rm")
 position = Vector2(9.24885, 6.18792)
 shape = SubResource("RectangleShape2D_sblpm")
 
-[node name="Employee2" type="Area2D" parent="." node_paths=PackedStringArray("Visual_Node")]
+[node name="flag" type="TextureButton" parent="Employee1"]
+top_level = true
+offset_left = 262.0
+offset_top = 111.0
+offset_right = 310.0
+offset_bottom = 159.0
+toggle_mode = true
+texture_normal = ExtResource("4_3amdw")
+texture_pressed = ExtResource("5_1xcnr")
+
+[node name="Employee2" type="Area2D" parent="." node_paths=PackedStringArray("flag", "Visual_Node")]
 position = Vector2(479, 195)
 scale = Vector2(8.21724, 5.00976)
 script = ExtResource("1_f6udf")
+flag = NodePath("flag")
 employee_number = 1
 Visual_Node = NodePath("sprite2")
 metadata/_custom_type_script = "uid://do3s2fg5n1wqq"
@@ -65,10 +79,21 @@ texture = ExtResource("3_r34rm")
 position = Vector2(9.24885, 6.18792)
 shape = SubResource("RectangleShape2D_sblpm")
 
-[node name="Employee3" type="Area2D" parent="." node_paths=PackedStringArray("Visual_Node")]
+[node name="flag" type="TextureButton" parent="Employee2"]
+top_level = true
+offset_left = 537.0
+offset_top = 111.0
+offset_right = 585.0
+offset_bottom = 159.0
+toggle_mode = true
+texture_normal = ExtResource("4_3amdw")
+texture_pressed = ExtResource("5_1xcnr")
+
+[node name="Employee3" type="Area2D" parent="." node_paths=PackedStringArray("flag", "Visual_Node")]
 position = Vector2(806, 199)
 scale = Vector2(8.21724, 5.00976)
 script = ExtResource("1_f6udf")
+flag = NodePath("flag")
 employee_number = 2
 Visual_Node = NodePath("sprite3")
 metadata/_custom_type_script = "uid://do3s2fg5n1wqq"
@@ -82,6 +107,16 @@ texture = ExtResource("3_r34rm")
 position = Vector2(9.24885, 6.18792)
 shape = SubResource("RectangleShape2D_sblpm")
 
+[node name="flag" type="TextureButton" parent="Employee3"]
+top_level = true
+offset_left = 862.0
+offset_top = 117.0
+offset_right = 910.0
+offset_bottom = 165.0
+toggle_mode = true
+texture_normal = ExtResource("4_3amdw")
+texture_pressed = ExtResource("5_1xcnr")
+
 [node name="Camera2D" type="Camera2D" parent="."]
 position = Vector2(640, 360)
 script = ExtResource("4_2wwxx")
@@ -89,6 +124,7 @@ script = ExtResource("4_2wwxx")
 [connection signal="input_event" from="Employee1" to="Employee1" method="_on_input_event"]
 [connection signal="mouse_entered" from="Employee1" to="Employee1" method="_on_mouse_entered"]
 [connection signal="mouse_exited" from="Employee1" to="Employee1" method="_on_mouse_exited"]
+[connection signal="toggled" from="Employee1/flag" to="Employee1" method="_on_flag_toggled"]
 [connection signal="input_event" from="Employee2" to="Employee2" method="_on_input_event"]
 [connection signal="mouse_entered" from="Employee2" to="Employee2" method="_on_mouse_entered"]
 [connection signal="mouse_exited" from="Employee2" to="Employee2" method="_on_mouse_exited"]
