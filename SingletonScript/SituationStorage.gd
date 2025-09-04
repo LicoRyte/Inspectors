@@ -8,7 +8,10 @@ func random_situation():
 
 
 var transcript = {
-	#preloads of png goes here
+	#---Responsible for loading sprite image
+	"placeholder_blue": preload("res://Assets/blue_trans_placeholder.png"),
+	"placeholder_green": preload("res://Assets/green_trans_placeholder.png"),
+	"placeholder_red": preload("res://Assets/red_trans_placeholder.png")
 }
 
 var situation = {
@@ -23,7 +26,7 @@ var situation = {
 			"E", 
 			"F"
 			],
-			"transcript_sprite": null,
+			"transcript_sprite": transcript.get("placeholder_red", null),
 			"is_corrupted": false
 		},
 		"ID2": {
@@ -36,20 +39,20 @@ var situation = {
 			"K", 
 			"L"
 			],
-			"transcript_sprite": null,
+			"transcript_sprite": transcript.get("placeholder_green", null),
 			"is_corrupted": false
 		},
 		"ID3": {
 			"Intro": "Tae",
 			"transcripts": [
-			"G", 
+			"I'm the MC | Academic Director lol", 
 			"H", 
 			"I", 
 			"J", 
 			"K",
 			"L"
 			],
-			"transcript_sprite": null,
+			"transcript_sprite": transcript.get("placeholder_blue", null),
 			"is_corrupted": false
 		}
 	}

@@ -30,24 +30,24 @@ shader_parameter/number_of_images = Vector2(1, 1)
 
 [node name="main" type="Node2D"]
 
-[node name="Fyodor" type="Area2D" parent="." node_paths=PackedStringArray("Visual_Node")]
+[node name="Employee1" type="Area2D" parent="." node_paths=PackedStringArray("Visual_Node")]
 position = Vector2(210, 189)
 scale = Vector2(8.21724, 5.00976)
 script = ExtResource("1_f6udf")
 Visual_Node = NodePath("sprite1")
 metadata/_custom_type_script = "uid://do3s2fg5n1wqq"
 
-[node name="sprite1" type="Sprite2D" parent="Fyodor"]
+[node name="sprite1" type="Sprite2D" parent="Employee1"]
 material = SubResource("ShaderMaterial_sblpm")
 position = Vector2(9.73563, 5.7887)
 scale = Vector2(0.275213, 0.299098)
 texture = ExtResource("3_r34rm")
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Fyodor"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Employee1"]
 position = Vector2(9.24885, 6.18792)
 shape = SubResource("RectangleShape2D_sblpm")
 
-[node name="Remy" type="Area2D" parent="." node_paths=PackedStringArray("Visual_Node")]
+[node name="Employee2" type="Area2D" parent="." node_paths=PackedStringArray("Visual_Node")]
 position = Vector2(479, 195)
 scale = Vector2(8.21724, 5.00976)
 script = ExtResource("1_f6udf")
@@ -55,17 +55,17 @@ employee_number = 1
 Visual_Node = NodePath("sprite2")
 metadata/_custom_type_script = "uid://do3s2fg5n1wqq"
 
-[node name="sprite2" type="Sprite2D" parent="Remy"]
+[node name="sprite2" type="Sprite2D" parent="Employee2"]
 material = SubResource("ShaderMaterial_r34rm")
 position = Vector2(9.85733, 5.7887)
 scale = Vector2(0.275213, 0.299098)
 texture = ExtResource("3_r34rm")
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Remy"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Employee2"]
 position = Vector2(9.24885, 6.18792)
 shape = SubResource("RectangleShape2D_sblpm")
 
-[node name="Guide" type="Area2D" parent="." node_paths=PackedStringArray("Visual_Node")]
+[node name="Employee3" type="Area2D" parent="." node_paths=PackedStringArray("Visual_Node")]
 position = Vector2(806, 199)
 scale = Vector2(8.21724, 5.00976)
 script = ExtResource("1_f6udf")
@@ -73,12 +73,12 @@ employee_number = 2
 Visual_Node = NodePath("sprite3")
 metadata/_custom_type_script = "uid://do3s2fg5n1wqq"
 
-[node name="sprite3" type="Sprite2D" parent="Guide"]
+[node name="sprite3" type="Sprite2D" parent="Employee3"]
 position = Vector2(9.85733, 5.7887)
 scale = Vector2(0.275213, 0.299098)
 texture = ExtResource("3_r34rm")
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Guide"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Employee3"]
 position = Vector2(9.24885, 6.18792)
 shape = SubResource("RectangleShape2D_sblpm")
 
@@ -86,12 +86,12 @@ shape = SubResource("RectangleShape2D_sblpm")
 position = Vector2(640, 360)
 script = ExtResource("4_2wwxx")
 
-[connection signal="input_event" from="Fyodor" to="Fyodor" method="_on_input_event"]
-[connection signal="mouse_entered" from="Fyodor" to="Fyodor" method="_on_mouse_entered"]
-[connection signal="mouse_exited" from="Fyodor" to="Fyodor" method="_on_mouse_exited"]
-[connection signal="input_event" from="Remy" to="Remy" method="_on_input_event"]
-[connection signal="mouse_entered" from="Remy" to="Remy" method="_on_mouse_entered"]
-[connection signal="mouse_exited" from="Remy" to="Remy" method="_on_mouse_exited"]
-[connection signal="input_event" from="Guide" to="Guide" method="_on_input_event"]
-[connection signal="mouse_entered" from="Guide" to="Guide" method="_on_mouse_entered"]
-[connection signal="mouse_exited" from="Guide" to="Guide" method="_on_mouse_exited"]
+[connection signal="input_event" from="Employee1" to="Employee1" method="_on_input_event"]
+[connection signal="mouse_entered" from="Employee1" to="Employee1" method="_on_mouse_entered"]
+[connection signal="mouse_exited" from="Employee1" to="Employee1" method="_on_mouse_exited"]
+[connection signal="input_event" from="Employee2" to="Employee2" method="_on_input_event"]
+[connection signal="mouse_entered" from="Employee2" to="Employee2" method="_on_mouse_entered"]
+[connection signal="mouse_exited" from="Employee2" to="Employee2" method="_on_mouse_exited"]
+[connection signal="input_event" from="Employee3" to="Employee3" method="_on_input_event"]
+[connection signal="mouse_entered" from="Employee3" to="Employee3" method="_on_mouse_entered"]
+[connection signal="mouse_exited" from="Employee3" to="Employee3" method="_on_mouse_exited"]

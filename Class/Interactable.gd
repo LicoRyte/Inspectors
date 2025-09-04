@@ -15,7 +15,8 @@ func _on_input_event(viewport, event, shape_idx):
 	pass
 
 func _on_mouse_entered():
-	do_outline(true)
+	if GameManager.selected_employee == null:
+		do_outline(true)
 
 func _on_mouse_exited():
 	do_outline(false)

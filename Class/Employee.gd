@@ -11,7 +11,7 @@ enum employee_ID {
 @export var intro_message: String = ""
 @export var transcript = []
 @export var is_corrupted: bool = false
-@export var transcript_sprite: Sprite2D
+@export var transcript_sprite: CompressedTexture2D
 
 var ID: String
 
@@ -37,24 +37,10 @@ func _on_input_event(_viewport: Node, event: InputEvent, _shape_idx: int) -> voi
 	if not GameManager.selected_employee:
 		if event is InputEventMouseButton and event.pressed:
 			GameManager.selected_employee = self
-			_show_dialog(intro_message)
+			Dialogue.add_text(intro_message)
 
 func _on_mouse_entered() -> void:
 	super()
 
 func _on_mouse_exited() -> void:
 	super()
-
-func _show_dialog(message) -> void:
-	if Dialogic.current_timeline != null:
-		return
-
-	# 1) Make a timeline in code
-	var timeline := DialogicTimeline.new()
-	
-
-	var events: Array = []
-	events.append(message)
-
-	timeline.events = events
-	Dialogic.start(timeline)
