@@ -121,6 +121,8 @@ texture_pressed = ExtResource("5_1xcnr")
 position = Vector2(640, 360)
 script = ExtResource("4_2wwxx")
 
+[node name="eiei" type="Node" parent="."]
+
 [connection signal="input_event" from="Employee1" to="Employee1" method="_on_input_event"]
 [connection signal="mouse_entered" from="Employee1" to="Employee1" method="_on_mouse_entered"]
 [connection signal="mouse_exited" from="Employee1" to="Employee1" method="_on_mouse_exited"]
