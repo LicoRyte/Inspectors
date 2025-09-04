@@ -17,7 +17,6 @@ var transcript = {
 	"placeholder_green": preload("res://Assets/green_trans_placeholder.png"),
 	"placeholder_red": preload("res://Assets/red_trans_placeholder.png")
 }
-
 var situation = {
 	1: {
 		"company": company.get("placeholder_company", null),
