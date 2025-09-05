@@ -8,17 +8,17 @@ extends CanvasLayer
 @onready var transcript_sprite: Sprite2D = $hand_ui/transcript_sprite
 @onready var company_button: TextureButton = $company_button_subpanel/MarginContainer/company_button
 @onready var company_transcript: Sprite2D = $hand_ui/company_transcript
+@onready var countdown: Node2D = $timer/MarginContainer/countdown
+@onready var skip_shift: TextureButton = $timer/MarginContainer/TextureButton
 
 
 
 var pulled: bool = false
 var visibility_lock: bool = false
-
-
 var character_sound: AudioStream
 
-
 func _ready() -> void:
+	skip_shift.pressed.connect(_on_skip_shift_pressed)
 	for i in trans_buttons.size():
 		trans_buttons[i].pressed.connect(func(): _on_transcript_pressed(i))
 
@@ -62,6 +62,7 @@ func _on_transcript_pressed(index: int) -> void:
 	var lines = GameManager.selected_employee.transcript
 	if index < 0 or index >= lines.size():
 		return
+	Dialogue.text
 	Dialogue.add_text(lines[index])
 	
 func pull_up(script: Texture2D = null):
@@ -87,3 +88,6 @@ func _on_company_button_mouse_entered() -> void:
 	pulled = true
 func _on_company_button_mouse_exited() -> void:
 	pulled = false
+	
+func _on_skip_shift_pressed():
+	Events.emit_signal("_on_shift_ended")

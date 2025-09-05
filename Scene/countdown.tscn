@@ -1,0 +1,49 @@
+[gd_scene load_steps=6 format=3 uid="uid://cvbi7p87jkpjh"]
+
+[ext_resource type="Texture2D" uid="uid://ctbmf7cgw45ce" path="res://Assets/time1.png" id="1_25ttx"]
+[ext_resource type="Script" uid="uid://cpj0p75u18lwl" path="res://Script/countdown.gd" id="1_ismew"]
+[ext_resource type="Shader" uid="uid://70kkkv0n0dxn" path="res://Shader/displacement.gdshader" id="2_sowme"]
+[ext_resource type="FontFile" uid="uid://cl1lla7t28egr" path="res://Assets/Fonts/PublicPixel-rv0pA.ttf" id="2_vshgv"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_ismew"]
+shader = ExtResource("2_sowme")
+shader_parameter/interval = 0.5
+shader_parameter/timeDelay = 0.0
+shader_parameter/intensityX = 0.75
+shader_parameter/intensityY = 0.75
+shader_parameter/seed = 42.0
+
+[node name="countdown" type="Node2D"]
+script = ExtResource("1_ismew")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("1_25ttx")
+centered = false
+
+[node name="MarginContainer" type="MarginContainer" parent="Sprite2D"]
+offset_right = 230.0
+offset_bottom = 110.0
+theme_override_constants/margin_left = 8
+theme_override_constants/margin_top = 32
+theme_override_constants/margin_right = 8
+theme_override_constants/margin_bottom = 32
+
+[node name="Panel" type="Panel" parent="Sprite2D/MarginContainer"]
+layout_mode = 2
+
+[node name="HBoxContainer" type="HBoxContainer" parent="Sprite2D/MarginContainer/Panel"]
+offset_right = 218.0
+offset_bottom = 110.0
+
+[node name="Label" type="Label" parent="Sprite2D/MarginContainer/Panel/HBoxContainer"]
+material = SubResource("ShaderMaterial_ismew")
+custom_minimum_size = Vector2(1, 1)
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 1
+theme_override_constants/line_spacing = 8
+theme_override_fonts/font = ExtResource("2_vshgv")
+theme_override_font_sizes/font_size = 36
+text = "12:30"
+horizontal_alignment = 1
+autowrap_mode = 2

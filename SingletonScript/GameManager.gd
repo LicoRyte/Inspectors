@@ -7,6 +7,7 @@ var intended_answer = []
 var player_answer = []
 
 func _ready() -> void:
+	Events._on_shift_ended.connect(_on_shift_ended)
 	if not Events.employee_vote_toggled.is_connected(_on_employee_vote_toggled):
 		Events.employee_vote_toggled.connect(_on_employee_vote_toggled)
 func set_main_cam(cam: AdvancedCamera):
@@ -25,6 +26,7 @@ func _process(delta: float) -> void:
 			main_cam.zoom_to(selected_employee)
 		else:
 			main_cam.zoom_out()
+	
 
 func _on_employee_vote_toggled(id: String, pressed: bool) -> void:
 	if pressed:
@@ -33,3 +35,12 @@ func _on_employee_vote_toggled(id: String, pressed: bool) -> void:
 			player_answer.sort()
 	else:
 		player_answer.erase(id)
+
+func _on_shift_ended():
+	Dialogue.hide_textbox()
+	Scene.Shift("shift_end")
+	await Events._transitioned
+	await get_tree().create_timer(8.0).timeout
+	
+	Scene.Change("summary")
+	

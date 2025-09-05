@@ -2,6 +2,7 @@ extends CanvasLayer
 
 @onready var container: MarginContainer = $dialogue/TextBoxContainer
 @onready var text: Label = $dialogue/TextBoxContainer/MarginContainer/HBoxContainer/Label
+var active_tween: Tween
 
 func _ready() -> void:
 	hide_textbox()
@@ -13,20 +14,28 @@ func hide_textbox():
 func show_textbox():
 	container.show()
 
+
 func add_text(next_text: String, sound: AudioStream = null):
+	# If a tween is already running, kill it
+	if active_tween and active_tween.is_running():
+		active_tween.kill()
+
+	# Reset
 	text.visible_ratio = 0.0
 	text.text = next_text
 	container.show()
 	
+	# Timing
 	var chars := next_text.length()
 	var time_per_char := 0.04
 	var duration := chars * time_per_char
 
-	# tween for the typing effect
-	var tween := get_tree().create_tween()
-	tween.tween_property(text, "visible_ratio", 1.0, duration) \
+	# New tween
+	active_tween = get_tree().create_tween()
+	active_tween.tween_property(text, "visible_ratio", 1.0, duration) \
 		.set_trans(Tween.TRANS_LINEAR) \
 		.set_ease(Tween.EASE_IN_OUT)
+
 
 	# play sound while text is appearing
 	if sound:

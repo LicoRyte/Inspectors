@@ -1,0 +1,71 @@
+[gd_scene load_steps=5 format=3 uid="uid://bf4oi4pf8j8hg"]
+
+[ext_resource type="Shader" uid="uid://70kkkv0n0dxn" path="res://Shader/displacement.gdshader" id="1_r4f3d"]
+[ext_resource type="FontFile" uid="uid://cl1lla7t28egr" path="res://Assets/Fonts/PublicPixel-rv0pA.ttf" id="2_m8dbx"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_w2n72"]
+bg_color = Color(0.0470588, 0.0431373, 0.00392157, 0)
+border_color = Color(0.171169, 0.169791, 0.0300328, 1)
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_m06h6"]
+shader = ExtResource("1_r4f3d")
+shader_parameter/interval = 0.5
+shader_parameter/timeDelay = 0.0
+shader_parameter/intensityX = 0.75
+shader_parameter/intensityY = 0.75
+shader_parameter/seed = 42.0
+
+[node name="ShiftEnded" type="Node2D"]
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+layer = 0
+
+[node name="ColorRect" type="ColorRect" parent="CanvasLayer"]
+offset_right = 1280.0
+offset_bottom = 719.0
+color = Color(0, 0, 0, 1)
+
+[node name="Text" type="CanvasLayer" parent="."]
+layer = 0
+
+[node name="TextBoxContainer" type="MarginContainer" parent="Text"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_right = -24.0
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(1.01881, 0.997632)
+theme_override_constants/margin_top = 340
+theme_override_constants/margin_bottom = 300
+
+[node name="Panel" type="Panel" parent="Text/TextBoxContainer"]
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_w2n72")
+
+[node name="MarginContainer" type="MarginContainer" parent="Text/TextBoxContainer"]
+layout_mode = 2
+theme_override_constants/margin_left = 16
+theme_override_constants/margin_top = 16
+theme_override_constants/margin_right = 16
+theme_override_constants/margin_bottom = 16
+
+[node name="Panel" type="Panel" parent="Text/TextBoxContainer/MarginContainer"]
+visible = false
+layout_mode = 2
+
+[node name="HBoxContainer" type="HBoxContainer" parent="Text/TextBoxContainer/MarginContainer"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="Text/TextBoxContainer/MarginContainer/HBoxContainer"]
+material = SubResource("ShaderMaterial_m06h6")
+custom_minimum_size = Vector2(1, 1)
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 1
+theme_override_constants/line_spacing = 8
+theme_override_fonts/font = ExtResource("2_m8dbx")
+theme_override_font_sizes/font_size = 21
+text = "---- Inspection Shift Ended ----"
+horizontal_alignment = 1
+autowrap_mode = 2

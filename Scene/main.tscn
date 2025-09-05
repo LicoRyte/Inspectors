@@ -1,12 +1,16 @@
-[gd_scene load_steps=11 format=3 uid="uid://b7awc58wyu86w"]
+[gd_scene load_steps=17 format=3 uid="uid://b7awc58wyu86w"]
 
 [ext_resource type="Script" uid="uid://do3s2fg5n1wqq" path="res://Class/Employee.gd" id="1_f6udf"]
 [ext_resource type="Shader" uid="uid://kto613kc87lg" path="res://Shader/outline.gdshader" id="1_sblpm"]
-[ext_resource type="Texture2D" uid="uid://cxaegtnlu536d" path="res://Assets/clancies.png" id="3_r34rm"]
+[ext_resource type="Texture2D" uid="uid://c1wygnobbenng" path="res://Assets/Portrait/mya.PNG" id="3_75buv"]
 [ext_resource type="Script" uid="uid://uxpqgbvuhwk1" path="res://Script/AdvancedCamera.gd" id="4_2wwxx"]
 [ext_resource type="Texture2D" uid="uid://dhgybc7yb4krl" path="res://Assets/UI/innocent.png" id="4_3amdw"]
 [ext_resource type="Texture2D" uid="uid://bvujj7njkrra8" path="res://Assets/UI/voted.png" id="5_1xcnr"]
+[ext_resource type="Texture2D" uid="uid://hpfgve2g30vn" path="res://Assets/Portrait/luka.PNG" id="6_c2iwn"]
+[ext_resource type="Texture2D" uid="uid://bcnlbuadmpynh" path="res://Assets/Portrait/adam.PNG" id="7_c2iwn"]
 [ext_resource type="PackedScene" uid="uid://b7s0a7gc6r0cs" path="res://Scene/UI.tscn" id="7_ow1sv"]
+[ext_resource type="Texture2D" uid="uid://btpntikeyrwxl" path="res://Assets/Room/Background.PNG" id="10_3pt4j"]
+[ext_resource type="Texture2D" uid="uid://01pli3ytny3g" path="res://Assets/Object/Table.PNG" id="11_7y4ci"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_sblpm"]
 shader = ExtResource("1_sblpm")
@@ -18,7 +22,8 @@ shader_parameter/inside = false
 shader_parameter/add_margins = true
 shader_parameter/number_of_images = Vector2(1, 1)
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_sblpm"]
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_3pt4j"]
+size = Vector2(24.5109, 62.669)
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_r34rm"]
 resource_local_to_scene = true
@@ -31,10 +36,22 @@ shader_parameter/inside = false
 shader_parameter/add_margins = true
 shader_parameter/number_of_images = Vector2(1, 1)
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_sblpm"]
+size = Vector2(26, 67)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_c2iwn"]
+size = Vector2(26, 67)
+
 [node name="main" type="Node2D"]
 
+[node name="ParallaxBackground" type="ParallaxBackground" parent="."]
+
+[node name="Background" type="Sprite2D" parent="ParallaxBackground"]
+position = Vector2(640, 360)
+texture = ExtResource("10_3pt4j")
+
 [node name="Employee1" type="Area2D" parent="." node_paths=PackedStringArray("flag", "Visual_Node")]
-position = Vector2(210, 189)
+position = Vector2(282, 325)
 scale = Vector2(8.21724, 5.00976)
 script = ExtResource("1_f6udf")
 flag = NodePath("flag")
@@ -43,26 +60,26 @@ metadata/_custom_type_script = "uid://do3s2fg5n1wqq"
 
 [node name="sprite1" type="Sprite2D" parent="Employee1"]
 material = SubResource("ShaderMaterial_sblpm")
-position = Vector2(9.73563, 5.7887)
-scale = Vector2(0.275213, 0.299098)
-texture = ExtResource("3_r34rm")
+position = Vector2(45.2707, 4.59104)
+scale = Vector2(0.121729, 0.199452)
+texture = ExtResource("3_75buv")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Employee1"]
-position = Vector2(9.24885, 6.18792)
-shape = SubResource("RectangleShape2D_sblpm")
+position = Vector2(9.53674e-07, 0)
+shape = SubResource("RectangleShape2D_3pt4j")
 
 [node name="flag" type="TextureButton" parent="Employee1"]
 top_level = true
-offset_left = 262.0
-offset_top = 111.0
-offset_right = 310.0
-offset_bottom = 159.0
+offset_left = 386.0
+offset_top = 217.0
+offset_right = 434.0
+offset_bottom = 265.0
 toggle_mode = true
 texture_normal = ExtResource("4_3amdw")
 texture_pressed = ExtResource("5_1xcnr")
 
 [node name="Employee2" type="Area2D" parent="." node_paths=PackedStringArray("flag", "Visual_Node")]
-position = Vector2(479, 195)
+position = Vector2(639, 361)
 scale = Vector2(8.21724, 5.00976)
 script = ExtResource("1_f6udf")
 flag = NodePath("flag")
@@ -72,26 +89,26 @@ metadata/_custom_type_script = "uid://do3s2fg5n1wqq"
 
 [node name="sprite2" type="Sprite2D" parent="Employee2"]
 material = SubResource("ShaderMaterial_r34rm")
-position = Vector2(9.85733, 5.7887)
-scale = Vector2(0.275213, 0.299098)
-texture = ExtResource("3_r34rm")
+position = Vector2(-1.90735e-06, 0)
+scale = Vector2(0.121729, 0.199729)
+texture = ExtResource("6_c2iwn")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Employee2"]
-position = Vector2(9.24885, 6.18792)
+position = Vector2(1.90735e-06, -1.90735e-06)
 shape = SubResource("RectangleShape2D_sblpm")
 
 [node name="flag" type="TextureButton" parent="Employee2"]
 top_level = true
-offset_left = 537.0
-offset_top = 111.0
-offset_right = 585.0
-offset_bottom = 159.0
+offset_left = 750.0
+offset_top = 242.0
+offset_right = 798.0
+offset_bottom = 290.0
 toggle_mode = true
 texture_normal = ExtResource("4_3amdw")
 texture_pressed = ExtResource("5_1xcnr")
 
 [node name="Employee3" type="Area2D" parent="." node_paths=PackedStringArray("flag", "Visual_Node")]
-position = Vector2(806, 199)
+position = Vector2(970, 342)
 scale = Vector2(8.21724, 5.00976)
 script = ExtResource("1_f6udf")
 flag = NodePath("flag")
@@ -100,20 +117,20 @@ Visual_Node = NodePath("sprite3")
 metadata/_custom_type_script = "uid://do3s2fg5n1wqq"
 
 [node name="sprite3" type="Sprite2D" parent="Employee3"]
-position = Vector2(9.85733, 5.7887)
-scale = Vector2(0.275213, 0.299098)
-texture = ExtResource("3_r34rm")
+position = Vector2(-42.4717, 4.99026)
+scale = Vector2(0.121634, 0.199729)
+texture = ExtResource("7_c2iwn")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Employee3"]
-position = Vector2(9.24885, 6.18792)
-shape = SubResource("RectangleShape2D_sblpm")
+position = Vector2(0, 3.8147e-06)
+shape = SubResource("RectangleShape2D_c2iwn")
 
 [node name="flag" type="TextureButton" parent="Employee3"]
 top_level = true
-offset_left = 862.0
-offset_top = 117.0
-offset_right = 910.0
-offset_bottom = 165.0
+offset_left = 1086.0
+offset_top = 246.0
+offset_right = 1134.0
+offset_bottom = 294.0
 toggle_mode = true
 texture_normal = ExtResource("4_3amdw")
 texture_pressed = ExtResource("5_1xcnr")
@@ -123,6 +140,10 @@ position = Vector2(640, 360)
 script = ExtResource("4_2wwxx")
 
 [node name="UI Panel" parent="." instance=ExtResource("7_ow1sv")]
+
+[node name="Table" type="Sprite2D" parent="."]
+position = Vector2(641, 360)
+texture = ExtResource("11_7y4ci")
 
 [connection signal="input_event" from="Employee1" to="Employee1" method="_on_input_event"]
 [connection signal="mouse_entered" from="Employee1" to="Employee1" method="_on_mouse_entered"]

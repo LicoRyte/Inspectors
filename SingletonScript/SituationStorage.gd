@@ -15,26 +15,28 @@ var transcript = {
 	#---Responsible for loading sprite image
 	"placeholder_blue":preload("res://Assets/UI/paper_resolutions.png")  ,
 	"placeholder_green": preload("res://Assets/green_trans_placeholder.png"),
-	"placeholder_red": preload("res://Assets/red_trans_placeholder.png")
+	"placeholder_red": preload("res://Assets/red_trans_placeholder.png"),
+	"default": preload("res://Assets/transcript/transcript_defualt.png")
+	
 }
 var situation = {
 	1: {
 		"company": company.get("placeholder_company", null),
 		"ID1": {
-			"Intro": "Peam",
+			"Intro": "MYA HARMONY",
 			"transcripts": [
-			"A",
-			"B", 
-			"C", 
-			"D", 
-			"E", 
-			"F"
+			"I just have a dinner with my family",
+			"I want a new bag", 
+			"I got it from you remember?", 
+			"it's my attorney consulation fees of my other business", 
+			"you know I do have a lot of business right stockmarket is one of that and it's blown up on that day", 
+			"that's for my dog but he good now don't worry about him"
 			],
-			"transcript_sprite": transcript.get("placeholder_red", null),
+			"transcript_sprite": transcript.get("default", null),
 			"is_corrupted": false
 		},
 		"ID2": {
-			"Intro": "Guide",
+			"Intro": "LUKA SILOMOV",
 			"transcripts": [
 			"G", 
 			"H", 
@@ -43,11 +45,11 @@ var situation = {
 			"K", 
 			"L"
 			],
-			"transcript_sprite": transcript.get("placeholder_green", null),
+			"transcript_sprite": transcript.get("default", null),
 			"is_corrupted": false
 		},
 		"ID3": {
-			"Intro": "Tae",
+			"Intro": "ADAM TEZEL",
 			"transcripts": [
 			"I'm the MC | Academic Director lol", 
 			"H", 
@@ -56,7 +58,7 @@ var situation = {
 			"K",
 			"L"
 			],
-			"transcript_sprite": transcript.get("placeholder_blue", null),
+			"transcript_sprite": transcript.get("default", null),
 			"is_corrupted": true
 		}
 	}

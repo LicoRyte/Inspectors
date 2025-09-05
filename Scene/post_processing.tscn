@@ -21,6 +21,7 @@ shader_parameter/tint_strength = 0.15
 shader_parameter/viewport_size_override = Vector2(0, 0)
 
 [node name="Post-Processing" type="CanvasLayer"]
+layer = 3
 script = ExtResource("1_w4fxx")
 
 [node name="CRT" type="ColorRect" parent="."]
