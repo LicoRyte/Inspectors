@@ -26,7 +26,8 @@ func _process(delta: float) -> void:
 			main_cam.zoom_to(selected_employee)
 		else:
 			main_cam.zoom_out()
-	
+	if intended_answer == player_answer:
+		print("ok")
 
 func _on_employee_vote_toggled(id: String, pressed: bool) -> void:
 	if pressed:
@@ -40,7 +41,7 @@ func _on_shift_ended():
 	Dialogue.hide_textbox()
 	Scene.Shift("shift_end")
 	await Events._transitioned
-	await get_tree().create_timer(8.0).timeout
+	await get_tree().create_timer(5.0).timeout
 	
 	Scene.Change("summary")
 	

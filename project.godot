@@ -25,6 +25,7 @@ UI="res://Scene/UI.tscn"
 Dialogue="*res://Scene/Dialogue.tscn"
 PostProcessing="*res://Scene/post_processing.tscn"
 GlobalTimer="*res://SingletonScript/GlobalTimer.gd"
+GlobalAudio="*res://Scene/GlobalAudio.tscn"
 
 [dialogic]
 

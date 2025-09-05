@@ -38,12 +38,12 @@ var situation = {
 		"ID2": {
 			"Intro": "LUKA SILOMOV",
 			"transcripts": [
-			"G", 
-			"H", 
-			"I", 
-			"J", 
-			"K", 
-			"L"
+			"it's my routine to get some gamble going on first day of the month", 
+			"I know it's against the rule of our company but I do Free lance", 
+			"it's the bonus of the company", 
+			"I bought a necklaces for my girlfriend", 
+			"I need to go get some grocery going my fridge feel a little empty", 
+			"I am a good trader you know"
 			],
 			"transcript_sprite": transcript.get("default", null),
 			"is_corrupted": false
@@ -51,12 +51,12 @@ var situation = {
 		"ID3": {
 			"Intro": "ADAM TEZEL",
 			"transcripts": [
-			"I'm the MC | Academic Director lol", 
-			"H", 
-			"I", 
-			"J", 
-			"K",
-			"L"
+			"last month Mya Harmony borrow some money and of course she returned it back.", 
+			"I got a bonus.", 
+			"Bought a concert ticket.", 
+			"..........", 
+			"I borrow some money from Luka Silomov",
+			"Whether you belive it or not I use that to build a swimming pool"
 			],
 			"transcript_sprite": transcript.get("default", null),
 			"is_corrupted": true

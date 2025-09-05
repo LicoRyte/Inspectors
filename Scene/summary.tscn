@@ -1,13 +1,166 @@
-[gd_scene load_steps=2 format=3 uid="uid://cshrl2m66tren"]
+[gd_scene load_steps=6 format=3 uid="uid://cshrl2m66tren"]
 
 [ext_resource type="Script" uid="uid://bsyd4me0r4ax7" path="res://Script/summary.gd" id="1_eajph"]
+[ext_resource type="Shader" uid="uid://70kkkv0n0dxn" path="res://Shader/displacement.gdshader" id="2_h8err"]
+[ext_resource type="FontFile" uid="uid://cl1lla7t28egr" path="res://Assets/Fonts/PublicPixel-rv0pA.ttf" id="3_qhpci"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_dqyss"]
+bg_color = Color(0.0470588, 0.0431373, 0.00392157, 0)
+border_color = Color(0.171169, 0.169791, 0.0300328, 1)
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_yywoe"]
+shader = ExtResource("2_h8err")
+shader_parameter/interval = 0.5
+shader_parameter/timeDelay = 0.0
+shader_parameter/intensityX = 0.75
+shader_parameter/intensityY = 0.75
+shader_parameter/seed = 42.0
 
 [node name="Summary" type="Node2D"]
 script = ExtResource("1_eajph")
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
+layer = 0
 
 [node name="ColorRect" type="ColorRect" parent="CanvasLayer"]
 offset_right = 1280.0
 offset_bottom = 719.0
 color = Color(0, 0, 0, 1)
+
+[node name="Text" type="CanvasLayer" parent="."]
+layer = 0
+
+[node name="Win_Lose" type="MarginContainer" parent="Text"]
+visible = false
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_right = -24.0
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(1.01881, 0.997632)
+theme_override_constants/margin_top = 180
+theme_override_constants/margin_bottom = 300
+metadata/_edit_use_anchors_ = true
+
+[node name="Panel" type="Panel" parent="Text/Win_Lose"]
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_dqyss")
+
+[node name="MarginContainer" type="MarginContainer" parent="Text/Win_Lose/Panel"]
+layout_mode = 2
+offset_right = 1256.0
+offset_bottom = 80.0
+theme_override_constants/margin_left = 16
+theme_override_constants/margin_top = 16
+theme_override_constants/margin_right = 16
+theme_override_constants/margin_bottom = 16
+
+[node name="Panel" type="Panel" parent="Text/Win_Lose/Panel/MarginContainer"]
+layout_mode = 2
+
+[node name="HBoxContainer" type="HBoxContainer" parent="Text/Win_Lose/Panel/MarginContainer"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="Text/Win_Lose/Panel/MarginContainer/HBoxContainer"]
+material = SubResource("ShaderMaterial_yywoe")
+custom_minimum_size = Vector2(1, 1)
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 1
+theme_override_constants/line_spacing = 8
+theme_override_fonts/font = ExtResource("3_qhpci")
+theme_override_font_sizes/font_size = 28
+text = "The mole has been exposed"
+horizontal_alignment = 1
+autowrap_mode = 2
+
+[node name="caught" type="MarginContainer" parent="Text"]
+visible = false
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_right = -24.0
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(1.01881, 0.997632)
+theme_override_constants/margin_top = 300
+theme_override_constants/margin_bottom = 300
+
+[node name="Panel" type="Panel" parent="Text/caught"]
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_dqyss")
+
+[node name="MarginContainer" type="MarginContainer" parent="Text/caught/Panel"]
+layout_mode = 2
+offset_right = 1256.0
+offset_bottom = 80.0
+theme_override_constants/margin_left = 16
+theme_override_constants/margin_top = 16
+theme_override_constants/margin_right = 16
+theme_override_constants/margin_bottom = 16
+
+[node name="Panel" type="Panel" parent="Text/caught/Panel/MarginContainer"]
+visible = false
+layout_mode = 2
+
+[node name="HBoxContainer" type="HBoxContainer" parent="Text/caught/Panel/MarginContainer"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="Text/caught/Panel/MarginContainer/HBoxContainer"]
+material = SubResource("ShaderMaterial_yywoe")
+custom_minimum_size = Vector2(1, 1)
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 1
+theme_override_constants/line_spacing = 8
+theme_override_fonts/font = ExtResource("3_qhpci")
+theme_override_font_sizes/font_size = 17
+text = "2 of 3 fired"
+horizontal_alignment = 1
+autowrap_mode = 2
+
+[node name="final_judge" type="MarginContainer" parent="Text"]
+visible = false
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_right = -24.0
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(1.01881, 0.997632)
+theme_override_constants/margin_top = 400
+theme_override_constants/margin_bottom = 200
+
+[node name="Panel" type="Panel" parent="Text/final_judge"]
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_dqyss")
+
+[node name="MarginContainer" type="MarginContainer" parent="Text/final_judge/Panel"]
+layout_mode = 2
+offset_right = 1256.0
+offset_bottom = 80.0
+theme_override_constants/margin_left = 16
+theme_override_constants/margin_top = 16
+theme_override_constants/margin_right = 16
+theme_override_constants/margin_bottom = 16
+
+[node name="Panel" type="Panel" parent="Text/final_judge/Panel/MarginContainer"]
+visible = false
+layout_mode = 2
+
+[node name="HBoxContainer" type="HBoxContainer" parent="Text/final_judge/Panel/MarginContainer"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="Text/final_judge/Panel/MarginContainer/HBoxContainer"]
+material = SubResource("ShaderMaterial_yywoe")
+custom_minimum_size = Vector2(1, 1)
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 1
+theme_override_constants/line_spacing = 8
+theme_override_fonts/font = ExtResource("3_qhpci")
+theme_override_font_sizes/font_size = 19
+text = "The company is safe… for now."
+horizontal_alignment = 1
+autowrap_mode = 2
