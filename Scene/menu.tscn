@@ -1,4 +1,4 @@
-[gd_scene load_steps=7 format=3 uid="uid://elwt5anxli3"]
+[gd_scene load_steps=7 format=3 uid="uid://dunrxvc3pe0od"]
 
 [ext_resource type="Script" uid="uid://dtkma3gnaqrom" path="res://Scene/menu.gd" id="1_b23qx"]
 [ext_resource type="Texture2D" uid="uid://0a5ivfvtbpl7" path="res://Assets/exit_button1.png" id="2_alu6o"]
@@ -62,7 +62,7 @@ text = "Inspector's Table"
 
 [connection signal="pressed" from="MarginContainer/VBoxContainer/Play" to="." method="_on_play_pressed"]
 [connection signal="pressed" from="MarginContainer/VBoxContainer/Exit" to="." method="_on_exit_pressed"]
-[connection signal="pressed" from="MarginContainer/VBoxContainer/TexturePlay" to="." method="_on_texture_button_pressed"]
 [connection signal="pressed" from="MarginContainer/VBoxContainer/TexturePlay" to="." method="_on_texture_play_pressed"]
+[connection signal="pressed" from="MarginContainer/VBoxContainer/TexturePlay" to="." method="_on_texture_button_pressed"]
 [connection signal="pressed" from="MarginContainer/VBoxContainer/TextureExit" to="." method="_on_texture_exit_pressed"]
 [connection signal="pressed" from="MarginContainer/VBoxContainer/TextureExit" to="." method="_on_texture_button_pressed"]

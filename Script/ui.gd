@@ -1,26 +1,42 @@
 extends CanvasLayer
-@onready var container: MarginContainer = $TextBoxContainer
-@onready var text: Label = $TextBoxContainer/MarginContainer/HBoxContainer/Label
+@onready var container: MarginContainer = $dialogue/TextBoxContainer
+@onready var text: Label = $dialogue/TextBoxContainer/MarginContainer/HBoxContainer/Label
 @onready var trans_buttons: Array[Button] = [
-	$trans1, $trans2, $trans3, $trans4, $trans5, $trans6
+	$transcript_menu_subpanel/trans1, $transcript_menu_subpanel/trans2, $transcript_menu_subpanel/trans3, $transcript_menu_subpanel/trans4, $transcript_menu_subpanel/trans5, $transcript_menu_subpanel/trans6
 ]
 @onready var exit_button: TextureButton = $exit_button
-@onready var transcript_sprite: Sprite2D = $transcript_sprite
-@onready var company_button: TextureButton = $MarginContainer/company_button
-@onready var company_transcript: Sprite2D = $company_transcript
+@onready var transcript_sprite: Sprite2D = $hand_ui/transcript_sprite
+@onready var company_button: TextureButton = $company_button_subpanel/MarginContainer/company_button
+@onready var company_transcript: Sprite2D = $hand_ui/company_transcript
+
+
 
 var pulled: bool = false
+var visibility_lock: bool = false
 
 
 var character_sound: AudioStream
 
 
 func _ready() -> void:
-	hide_textbox()
 	for i in trans_buttons.size():
 		trans_buttons[i].pressed.connect(func(): _on_transcript_pressed(i))
 
+func hide_ui():
+	visibility_lock = true
+	for i in self.get_children():
+		if i == $Post_processing:
+			continue
+		i.hide()
+
+func show_ui():
+	visibility_lock = false
+	for i in self.get_children():
+		i.show()
+
 func _process(delta: float) -> void:
+	if visibility_lock:
+		return
 	if pulled:
 		pull_company_up()
 	else:
@@ -37,48 +53,16 @@ func _process(delta: float) -> void:
 		for i in trans_buttons.size():
 			trans_buttons[i].show()
 	
-func hide_textbox():
-	text.text = ""
-	container.hide()
-	
-func show_textbox():
-	container.show()
-
-func add_text(next_text: String, sound: AudioStream = null):
-	text.visible_ratio = 0.0
-	text.text = next_text
-	container.show()
-	
-	var chars := next_text.length()
-	var time_per_char := 0.04
-	var duration := chars * time_per_char
-
-	# tween for the typing effect
-	var tween := get_tree().create_tween()
-	tween.tween_property(text, "visible_ratio", 1.0, duration) \
-		.set_trans(Tween.TRANS_LINEAR) \
-		.set_ease(Tween.EASE_IN_OUT)
-
-	# play sound while text is appearing
-	if sound:
-		_play_character_sounds(chars, time_per_char, sound)
-
-func _play_character_sounds(chars: int, delay: float, sound: AudioStream) -> void:
-	var audio := AudioStreamPlayer.new()
-	add_child(audio)
-	audio.stream = sound
-
-	for i in range(chars):
-		audio.play()
-		await get_tree().create_timer(delay).timeout
 
 func _on_transcript_pressed(index: int) -> void:
+	if visibility_lock:
+		return
 	if GameManager.selected_employee == null:
 		return
 	var lines = GameManager.selected_employee.transcript
 	if index < 0 or index >= lines.size():
 		return
-	add_text(lines[index])
+	Dialogue.add_text(lines[index])
 	
 func pull_up(script: Texture2D = null):
 	if GameManager.selected_employee:
@@ -90,7 +74,7 @@ func pull_down():
 
 func _on_exit_button_pressed() -> void:
 		print("selected reset")
-		hide_textbox()
+		Dialogue.hide_textbox()
 		GameManager.selected_employee = null
 
 func pull_company_up():
@@ -99,9 +83,6 @@ func pull_company_up():
 
 func pull_company_down():
 	company_transcript.global_position.y = move_toward(company_transcript.global_position.y, 720.0, get_process_delta_time() * 3000)
-
-
-
 func _on_company_button_mouse_entered() -> void:
 	pulled = true
 func _on_company_button_mouse_exited() -> void:

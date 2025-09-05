@@ -1,0 +1,18 @@
+[gd_scene load_steps=4 format=3 uid="uid://cnpl748bws0fd"]
+
+[ext_resource type="Texture2D" uid="uid://dywxa7ewarcdt" path="res://Assets/company_placeholder.png" id="1_6g3pc"]
+[ext_resource type="Script" uid="uid://bntbqufsyfup4" path="res://Script/hand_ui.gd" id="1_uh23q"]
+[ext_resource type="Texture2D" uid="uid://d320888xp37o1" path="res://Assets/blue_trans_placeholder.png" id="2_uh23q"]
+
+[node name="HandUI" type="CanvasLayer"]
+script = ExtResource("1_uh23q")
+
+[node name="company_transcript" type="Sprite2D" parent="."]
+position = Vector2(0, 720)
+texture = ExtResource("1_6g3pc")
+centered = false
+
+[node name="transcript_sprite" type="Sprite2D" parent="."]
+position = Vector2(0, 720)
+texture = ExtResource("2_uh23q")
+centered = false

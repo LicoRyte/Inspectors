@@ -1,0 +1,99 @@
+[gd_scene load_steps=6 format=3 uid="uid://b7s0a7gc6r0cs"]
+
+[ext_resource type="Script" uid="uid://bc7evgdlrflw6" path="res://Script/ui.gd" id="1_nq5m3"]
+[ext_resource type="Texture2D" uid="uid://dywxa7ewarcdt" path="res://Assets/company_placeholder.png" id="2_hskja"]
+[ext_resource type="Texture2D" uid="uid://d320888xp37o1" path="res://Assets/blue_trans_placeholder.png" id="3_f6k66"]
+
+[sub_resource type="PlaceholderTexture2D" id="PlaceholderTexture2D_ve4bg"]
+size = Vector2(90, 45)
+
+[sub_resource type="PlaceholderTexture2D" id="PlaceholderTexture2D_4wkfl"]
+size = Vector2(480, 32)
+
+[node name="UI Panel" type="CanvasLayer"]
+script = ExtResource("1_nq5m3")
+
+[node name="hand_ui" type="CanvasLayer" parent="."]
+
+[node name="company_transcript" type="Sprite2D" parent="hand_ui"]
+position = Vector2(0, 720)
+texture = ExtResource("2_hskja")
+centered = false
+
+[node name="transcript_sprite" type="Sprite2D" parent="hand_ui"]
+position = Vector2(0, 720)
+texture = ExtResource("3_f6k66")
+centered = false
+
+[node name="transcript_menu_subpanel" type="CanvasLayer" parent="."]
+
+[node name="trans1" type="Button" parent="transcript_menu_subpanel"]
+offset_left = 127.0
+offset_top = 186.0
+offset_right = 223.0
+offset_bottom = 210.0
+
+[node name="trans2" type="Button" parent="transcript_menu_subpanel"]
+offset_left = 130.0
+offset_top = 221.0
+offset_right = 226.0
+offset_bottom = 245.0
+
+[node name="trans3" type="Button" parent="transcript_menu_subpanel"]
+offset_left = 130.0
+offset_top = 251.0
+offset_right = 226.0
+offset_bottom = 275.0
+
+[node name="trans4" type="Button" parent="transcript_menu_subpanel"]
+offset_left = 130.0
+offset_top = 291.0
+offset_right = 226.0
+offset_bottom = 315.0
+
+[node name="trans5" type="Button" parent="transcript_menu_subpanel"]
+offset_left = 133.0
+offset_top = 327.0
+offset_right = 229.0
+offset_bottom = 351.0
+
+[node name="trans6" type="Button" parent="transcript_menu_subpanel"]
+offset_left = 138.0
+offset_top = 369.0
+offset_right = 234.0
+offset_bottom = 393.0
+
+[node name="exit_button" type="TextureButton" parent="."]
+offset_left = 135.0
+offset_top = 46.0
+offset_right = 225.0
+offset_bottom = 91.0
+texture_normal = SubResource("PlaceholderTexture2D_ve4bg")
+
+[node name="company_button_subpanel" type="CanvasLayer" parent="."]
+
+[node name="MarginContainer" type="MarginContainer" parent="company_button_subpanel"]
+anchors_preset = 12
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = -77.0
+offset_right = 8.0
+grow_horizontal = 2
+grow_vertical = 0
+mouse_filter = 2
+theme_override_constants/margin_left = 400
+
+[node name="company_button" type="TextureButton" parent="company_button_subpanel/MarginContainer"]
+layout_mode = 2
+texture_normal = SubResource("PlaceholderTexture2D_4wkfl")
+
+[connection signal="pressed" from="transcript_menu_subpanel/trans1" to="." method="_on_trans_1_pressed"]
+[connection signal="button_down" from="transcript_menu_subpanel/trans2" to="." method="_on_trans_2_button_down"]
+[connection signal="button_down" from="transcript_menu_subpanel/trans3" to="." method="_on_trans_3_button_down"]
+[connection signal="button_down" from="transcript_menu_subpanel/trans4" to="." method="_on_trans_4_button_down"]
+[connection signal="pressed" from="transcript_menu_subpanel/trans5" to="." method="_on_trans_5_pressed"]
+[connection signal="button_down" from="transcript_menu_subpanel/trans6" to="." method="_on_trans_6_button_down"]
+[connection signal="pressed" from="exit_button" to="." method="_on_exit_button_pressed"]
+[connection signal="mouse_entered" from="company_button_subpanel/MarginContainer/company_button" to="." method="_on_company_button_mouse_entered"]
+[connection signal="mouse_exited" from="company_button_subpanel/MarginContainer/company_button" to="." method="_on_company_button_mouse_exited"]

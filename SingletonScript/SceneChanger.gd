@@ -3,9 +3,9 @@ extends Node
 
 
 @onready var scene_animation: AnimationPlayer = $SceneAnimation
-
 var scene = {
-	"main": preload("res://Scene/main.tscn")
+	"main": preload("res://Scene/main.tscn"),
+	"hand" : preload("res://Scene/hand_ui.tscn")
 }
 func Change(scene_name):
 	if not scene.has(scene_name):

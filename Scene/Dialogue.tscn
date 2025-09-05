@@ -1,0 +1,70 @@
+[gd_scene load_steps=6 format=3 uid="uid://chbsobentw1yc"]
+
+[ext_resource type="Shader" uid="uid://70kkkv0n0dxn" path="res://Shader/displacement.gdshader" id="1_82te6"]
+[ext_resource type="Script" uid="uid://cc02lbictlpg7" path="res://SingletonScript/Dialogue.gd" id="1_vxiav"]
+[ext_resource type="FontFile" uid="uid://cl1lla7t28egr" path="res://Assets/Fonts/PublicPixel-rv0pA.ttf" id="2_vxiav"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_o0gax"]
+bg_color = Color(0.0470588, 0.0431373, 0.00392157, 0.423529)
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+border_color = Color(0.171169, 0.169791, 0.0300328, 1)
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_jiobl"]
+shader = ExtResource("1_82te6")
+shader_parameter/interval = 0.5
+shader_parameter/timeDelay = 0.0
+shader_parameter/intensityX = 0.75
+shader_parameter/intensityY = 0.75
+shader_parameter/seed = 42.0
+
+[node name="Dialogue" type="CanvasLayer"]
+script = ExtResource("1_vxiav")
+
+[node name="dialogue" type="CanvasLayer" parent="."]
+
+[node name="TextBoxContainer" type="MarginContainer" parent="dialogue"]
+anchors_preset = 12
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = -201.0
+offset_right = -23.0
+grow_horizontal = 2
+grow_vertical = 0
+scale = Vector2(1.01881, 0.997632)
+theme_override_constants/margin_left = 480
+theme_override_constants/margin_right = 72
+theme_override_constants/margin_bottom = 72
+
+[node name="Panel" type="Panel" parent="dialogue/TextBoxContainer"]
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_o0gax")
+
+[node name="MarginContainer" type="MarginContainer" parent="dialogue/TextBoxContainer"]
+layout_mode = 2
+theme_override_constants/margin_left = 16
+theme_override_constants/margin_top = 16
+theme_override_constants/margin_right = 16
+theme_override_constants/margin_bottom = 16
+
+[node name="Panel" type="Panel" parent="dialogue/TextBoxContainer/MarginContainer"]
+visible = false
+layout_mode = 2
+
+[node name="HBoxContainer" type="HBoxContainer" parent="dialogue/TextBoxContainer/MarginContainer"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="dialogue/TextBoxContainer/MarginContainer/HBoxContainer"]
+material = SubResource("ShaderMaterial_jiobl")
+custom_minimum_size = Vector2(1, 1)
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 1
+theme_override_constants/line_spacing = 8
+theme_override_fonts/font = ExtResource("2_vxiav")
+theme_override_font_sizes/font_size = 18
+text = "Hello, my name is fyodor humyai of course lol"
+autowrap_mode = 2

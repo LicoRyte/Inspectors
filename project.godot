@@ -11,7 +11,7 @@ config_version=5
 [application]
 
 config/name="Inspector's Table"
-run/main_scene="uid://elwt5anxli3"
+run/main_scene="uid://dunrxvc3pe0od"
 config/features=PackedStringArray("4.4", "Forward Plus")
 config/icon="res://icon.svg"
 
@@ -21,7 +21,9 @@ Events="*res://SingletonScript/GlobalEvents.gd"
 GameManager="*res://SingletonScript/GameManager.gd"
 Scene="*res://SingletonScript/SceneChanger.tscn"
 Situation="*res://SingletonScript/SituationStorage.gd"
-Dialogue="*res://Scene/dialogue.tscn"
+UI="res://Scene/UI.tscn"
+Dialogue="*res://Scene/Dialogue.tscn"
+PostProcessing="*res://Scene/post_processing.tscn"
 
 [dialogic]
 
