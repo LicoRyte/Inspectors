@@ -11,20 +11,25 @@ func random_situation():
 
 
 var company = {
-	"placeholder_company": preload("res://Assets/company_placeholder.png")
+	"placeholder_company": preload("res://Assets/company_placeholder.png"),
+	"company_1" : preload("res://Assets/transcript/company_tran1.png"),
+	"company_2" : preload("res://Assets/transcript/company_tran2.png")
 }
 
 var transcript = {
 	#---Responsible for loading sprite image
-	"placeholder_blue":preload("res://Assets/UI/paper_resolutions.png")  ,
-	"placeholder_green": preload("res://Assets/green_trans_placeholder.png"),
-	"placeholder_red": preload("res://Assets/red_trans_placeholder.png"),
-	"default": preload("res://Assets/transcript/transcript_defualt.png")
+	"default": preload("res://Assets/transcript/transcript_defualt.png"),
+	"mia_tran1" : preload("res://Assets/transcript/Mia_tran1.png"),
+	"mia_tran2" : preload("res://Assets/transcript/Mia_tran2.png"),
+	"luka_tran1" : preload("res://Assets/transcript/Luka_tran1.png"),
+	"luka_tran2": preload("res://Assets/transcript/Luka_tran2.png"),
+	"adam_tran1": preload("res://Assets/transcript/Adam_tran1.png"),
+	"adam_tran2" : preload("res://Assets/transcript/Adam_tran2.png")
 	
 }
 var situation = {
 	1: {
-		"company": company.get("placeholder_company", null),
+		"company": company.get("company_1", null),
 		"ID1": {
 			"Intro": "MYA HARMONY",
 			"transcripts": [
@@ -35,7 +40,7 @@ var situation = {
 			"you know I do have a lot of business right stockmarket is one of that and it's blown up on that day", 
 			"that's for my dog but he good now don't worry about him"
 			],
-			"transcript_sprite": transcript.get("default", null),
+			"transcript_sprite": transcript.get("mia_tran1", null),
 			"is_corrupted": false
 		},
 		"ID2": {
@@ -48,7 +53,7 @@ var situation = {
 			"I need to go get some grocery going my fridge feel a little empty", 
 			"I am a good trader you know"
 			],
-			"transcript_sprite": transcript.get("default", null),
+			"transcript_sprite": transcript.get("luka_tran1", null),
 			"is_corrupted": false
 		},
 		"ID3": {
@@ -61,13 +66,13 @@ var situation = {
 			"I borrow some money from Luka Silomov",
 			"Whether you belive it or not I use that to build a swimming pool"
 			],
-			"transcript_sprite": transcript.get("default", null),
+			"transcript_sprite": transcript.get("adam_tran1", null),
 			"is_corrupted": true
 		}
 	},
 	
 	2: {
-		"company": company.get("placeholder_company", null),
+		"company": company.get("company_2", null),
 		"ID1": {
 			"Intro": "MYA HARMONY",
 			"transcripts": [
@@ -78,7 +83,7 @@ var situation = {
 			"it's just literally went to my bank account, I have no idea.", 
 			"it's the bonus from you."
 			],
-			"transcript_sprite": transcript.get("default", null),
+			"transcript_sprite": transcript.get("mia_tran2", null),
 			"is_corrupted": true
 		},
 		"ID2": {
@@ -91,7 +96,7 @@ var situation = {
 			"I went to the casino and that day it's my lucky day.", 
 			"it's the bonus of the resterant"
 			],
-			"transcript_sprite": transcript.get("default", null),
+			"transcript_sprite": transcript.get("luka_tran2", null),
 			"is_corrupted": false
 		},
 		"ID3": {
@@ -104,7 +109,7 @@ var situation = {
 			"My mom need a money for her car installments.",
 			"It's the bouns of this month."
 			],
-			"transcript_sprite": transcript.get("default", null),
+			"transcript_sprite": transcript.get("adam_tran2", null),
 			"is_corrupted": false
 		}
 	}
