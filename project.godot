@@ -11,8 +11,9 @@ config_version=5
 [application]
 
 config/name="Inspector's Table"
-run/main_scene="uid://dunrxvc3pe0od"
+run/main_scene="uid://kee3nqpgucws"
 config/features=PackedStringArray("4.4", "Forward Plus")
+boot_splash/image="uid://tswf11a1ejir"
 config/icon="res://icon.svg"
 
 [autoload]
