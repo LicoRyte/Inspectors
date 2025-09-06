@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=3 uid="uid://dunrxvc3pe0od"]
+[gd_scene load_steps=13 format=3 uid="uid://dunrxvc3pe0od"]
 
 [ext_resource type="Script" uid="uid://dtkma3gnaqrom" path="res://Scene/menu.gd" id="1_b23qx"]
 [ext_resource type="Texture2D" uid="uid://0a5ivfvtbpl7" path="res://Assets/exit_button1.png" id="2_alu6o"]
@@ -7,6 +7,10 @@
 [ext_resource type="Texture2D" uid="uid://bw3a3pdphdi6h" path="res://Assets/exit_button1.1.png" id="3_ffxp3"]
 [ext_resource type="Texture2D" uid="uid://d367axvoiigr7" path="res://Assets/play_button.png" id="4_fyf5i"]
 [ext_resource type="FontFile" uid="uid://cl1lla7t28egr" path="res://Assets/Fonts/PublicPixel-rv0pA.ttf" id="6_fyf5i"]
+[ext_resource type="Texture2D" uid="uid://f07xik5pxhw4" path="res://Assets/Room/menu.PNG" id="8_k52wo"]
+
+[sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_k52wo"]
+blend_mode = 3
 
 [sub_resource type="Animation" id="Animation_fyf5i"]
 resource_name = "Fade Out"
@@ -57,10 +61,15 @@ script = ExtResource("1_b23qx")
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 layer = 0
 
+[node name="Menu" type="Sprite2D" parent="CanvasLayer"]
+position = Vector2(640, 360)
+texture = ExtResource("8_k52wo")
+
 [node name="ColorRect" type="ColorRect" parent="CanvasLayer"]
-offset_right = 1280.0
-offset_bottom = 719.0
-color = Color(0, 0, 0, 1)
+material = SubResource("CanvasItemMaterial_k52wo")
+offset_right = 1279.0
+offset_bottom = 722.0
+color = Color(0.258021, 0.306799, 0.530569, 1)
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="CanvasLayer"]
 root_node = NodePath("../..")
@@ -108,9 +117,9 @@ text = "Inspector's Table"
 horizontal_alignment = 1
 
 [node name="ColorRect2" type="ColorRect" parent="CanvasLayer"]
-offset_left = -25.0
+offset_left = -22.0
 offset_top = -18.0
-offset_right = 1314.0
+offset_right = 1317.0
 offset_bottom = 771.0
 mouse_filter = 2
 color = Color(0, 0, 0, 1)
@@ -122,7 +131,7 @@ metadata/_custom_type_script = "uid://uxpqgbvuhwk1"
 
 [connection signal="pressed" from="CanvasLayer/MarginContainer/VBoxContainer/Play" to="." method="_on_play_pressed"]
 [connection signal="pressed" from="CanvasLayer/MarginContainer/VBoxContainer/Exit" to="." method="_on_exit_pressed"]
-[connection signal="pressed" from="CanvasLayer/MarginContainer/VBoxContainer/TexturePlay" to="." method="_on_texture_play_pressed"]
 [connection signal="pressed" from="CanvasLayer/MarginContainer/VBoxContainer/TexturePlay" to="." method="_on_texture_button_pressed"]
-[connection signal="pressed" from="CanvasLayer/MarginContainer/VBoxContainer/TextureExit" to="." method="_on_texture_exit_pressed"]
+[connection signal="pressed" from="CanvasLayer/MarginContainer/VBoxContainer/TexturePlay" to="." method="_on_texture_play_pressed"]
 [connection signal="pressed" from="CanvasLayer/MarginContainer/VBoxContainer/TextureExit" to="." method="_on_texture_button_pressed"]
+[connection signal="pressed" from="CanvasLayer/MarginContainer/VBoxContainer/TextureExit" to="." method="_on_texture_exit_pressed"]

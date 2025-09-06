@@ -52,5 +52,5 @@ func _on_shift_ended() -> void:
 	await get_tree().create_timer(5.0).timeout
 	Dialogue.locked = false
 	Scene.Change("summary")
-	_shift_ended_fired = false
+	
 	

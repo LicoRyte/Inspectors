@@ -107,4 +107,7 @@ func _show_sequence() -> void:
 	await get_tree().create_timer(3.5).timeout
 	GameManager.player_answer = []
 	GameManager.intended_answer = []
+	
 	Scene.Change("menu")
+	GlobalAudio.change_music("menu")
+	GameManager._shift_ended_fired = false
