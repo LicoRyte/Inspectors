@@ -26,8 +26,9 @@ func add_text(next_text: String, sound: AudioStream = null):
 	
 	# Timing
 	var chars := next_text.length()
-	var time_per_char := 0.04
+	var time_per_char := 0.02
 	var duration := chars * time_per_char
+	var time_delay := 0.15
 
 	# New tween
 	active_tween = get_tree().create_tween()
@@ -37,14 +38,14 @@ func add_text(next_text: String, sound: AudioStream = null):
 
 
 	# play sound while text is appearing
-	if sound:
-		_play_character_sounds(chars, time_per_char, sound)
+	if GlobalAudio.sound_effect["type"]:
+		_play_character_sounds(time_delay, GlobalAudio.sound_effect["type"])
 
-func _play_character_sounds(chars: int, delay: float, sound: AudioStream) -> void:
-	var audio := AudioStreamPlayer.new()
-	add_child(audio)
-	audio.stream = sound
+func _play_character_sounds(delay: float, sound: AudioStream) -> void:
 
-	for i in range(chars):
+	while text.visible_ratio < 1.0:
+		var audio := AudioStreamPlayer.new()
+		add_child(audio)
+		audio.stream = sound
 		audio.play()
 		await get_tree().create_timer(delay).timeout

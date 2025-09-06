@@ -70,7 +70,7 @@ metadata/_custom_type_script = "uid://uxpqgbvuhwk1"
 
 [connection signal="pressed" from="CanvasLayer/MarginContainer/VBoxContainer/Play" to="." method="_on_play_pressed"]
 [connection signal="pressed" from="CanvasLayer/MarginContainer/VBoxContainer/Exit" to="." method="_on_exit_pressed"]
-[connection signal="pressed" from="CanvasLayer/MarginContainer/VBoxContainer/TexturePlay" to="." method="_on_texture_play_pressed"]
 [connection signal="pressed" from="CanvasLayer/MarginContainer/VBoxContainer/TexturePlay" to="." method="_on_texture_button_pressed"]
+[connection signal="pressed" from="CanvasLayer/MarginContainer/VBoxContainer/TexturePlay" to="." method="_on_texture_play_pressed"]
 [connection signal="pressed" from="CanvasLayer/MarginContainer/VBoxContainer/TextureExit" to="." method="_on_texture_button_pressed"]
 [connection signal="pressed" from="CanvasLayer/MarginContainer/VBoxContainer/TextureExit" to="." method="_on_texture_exit_pressed"]

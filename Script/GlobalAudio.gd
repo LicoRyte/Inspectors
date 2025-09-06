@@ -5,12 +5,16 @@ var fade_time = 0.2
 @onready var bg_player: AudioStreamPlayer = $AudioStreamPlayer
 
 var music = {
-	"darkatmos" : preload("res://Assets/Music/Dark _Atmosphere13_Looped_24bit.wav"),
+	"darkatmos" :preload("res://Assets/Music/sfx/Dark _Atmosphere13_Looped_24bit.wav"),
 	"menu" : preload("res://Assets/Music/The Oldest Mage.ogg")
 }
 
 var sound_effect = {
-
+	"reliable": preload("res://Assets/Music/sfx/reliable.mp3"),
+	"riser": preload("res://Assets/Music/sfx/riser.mp3"),
+	"paper": preload("res://Assets/Music/sfx/paperflutter.ogg"),
+	"shift_end": preload("res://Assets/Music/sfx/shift_end.ogg"),
+	"type": preload("res://Assets/Music/sfx/typewriter.ogg")
 }
 
 
@@ -31,6 +35,7 @@ func change_music(new_music: String):
 func effect(sfx: String):
 	var audio = AudioStreamPlayer.new()
 	add_child(audio)
-	audio.play(music[sfx])
+	audio.stream = sound_effect[sfx]
+	audio.play()
 	await audio.finished
 	remove_child(audio)
