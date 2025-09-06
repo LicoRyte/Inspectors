@@ -105,4 +105,6 @@ func _show_sequence() -> void:
 	await get_tree().create_timer(1.5).timeout
 	bottom_message.show()
 	await get_tree().create_timer(3.5).timeout
+	GameManager.player_answer = []
+	GameManager.intended_answer = []
 	Scene.Change("menu")

@@ -1,4 +1,4 @@
-[gd_scene load_steps=7 format=3 uid="uid://dunrxvc3pe0od"]
+[gd_scene load_steps=8 format=3 uid="uid://dunrxvc3pe0od"]
 
 [ext_resource type="Script" uid="uid://dtkma3gnaqrom" path="res://Scene/menu.gd" id="1_b23qx"]
 [ext_resource type="Texture2D" uid="uid://0a5ivfvtbpl7" path="res://Assets/exit_button1.png" id="2_alu6o"]
@@ -6,6 +6,7 @@
 [ext_resource type="Texture2D" uid="uid://cvtfhdc71y0pg" path="res://Assets/play_button2.png" id="3_6hgn1"]
 [ext_resource type="Texture2D" uid="uid://bw3a3pdphdi6h" path="res://Assets/exit_button1.1.png" id="3_ffxp3"]
 [ext_resource type="Texture2D" uid="uid://d367axvoiigr7" path="res://Assets/play_button.png" id="4_fyf5i"]
+[ext_resource type="FontFile" uid="uid://cl1lla7t28egr" path="res://Assets/Fonts/PublicPixel-rv0pA.ttf" id="6_fyf5i"]
 
 [node name="Menu" type="Control"]
 layout_mode = 3
@@ -16,53 +17,60 @@ grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_b23qx")
 
-[node name="MarginContainer" type="MarginContainer" parent="."]
-layout_mode = 0
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+layer = 0
+
+[node name="ColorRect" type="ColorRect" parent="CanvasLayer"]
+offset_right = 1280.0
+offset_bottom = 719.0
+color = Color(0, 0, 0, 1)
+
+[node name="MarginContainer" type="MarginContainer" parent="CanvasLayer"]
 offset_left = 510.0
 offset_top = 295.0
 offset_right = 774.0
-offset_bottom = 482.0
+offset_bottom = 587.0
 
-[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer"]
+[node name="VBoxContainer" type="VBoxContainer" parent="CanvasLayer/MarginContainer"]
 layout_mode = 2
 
-[node name="Play" type="Button" parent="MarginContainer/VBoxContainer"]
+[node name="Play" type="Button" parent="CanvasLayer/MarginContainer/VBoxContainer"]
 visible = false
 layout_mode = 2
 text = "PLAY"
 
-[node name="Exit" type="Button" parent="MarginContainer/VBoxContainer"]
+[node name="Exit" type="Button" parent="CanvasLayer/MarginContainer/VBoxContainer"]
 visible = false
 layout_mode = 2
 icon = ExtResource("2_alu6o")
 
-[node name="TexturePlay" type="TextureButton" parent="MarginContainer/VBoxContainer"]
+[node name="TexturePlay" type="TextureButton" parent="CanvasLayer/MarginContainer/VBoxContainer"]
 layout_mode = 2
 texture_normal = ExtResource("3_6hgn1")
 texture_hover = ExtResource("4_fyf5i")
 
-[node name="TextureExit" type="TextureButton" parent="MarginContainer/VBoxContainer"]
+[node name="TextureExit" type="TextureButton" parent="CanvasLayer/MarginContainer/VBoxContainer"]
 layout_mode = 2
 texture_normal = ExtResource("2_alu6o")
 texture_hover = ExtResource("3_ffxp3")
+
+[node name="Label" type="Label" parent="CanvasLayer"]
+offset_top = 134.0
+offset_right = 1279.0
+offset_bottom = 273.0
+theme_override_fonts/font = ExtResource("6_fyf5i")
+theme_override_font_sizes/font_size = 64
+text = "Inspector's Table"
+horizontal_alignment = 1
 
 [node name="AdvancedCamera" type="Camera2D" parent="."]
 position = Vector2(640, 360)
 script = ExtResource("2_eas8t")
 metadata/_custom_type_script = "uid://uxpqgbvuhwk1"
 
-[node name="Label" type="Label" parent="."]
-layout_mode = 0
-offset_left = 165.0
-offset_top = 99.0
-offset_right = 1113.0
-offset_bottom = 257.0
-theme_override_font_sizes/font_size = 116
-text = "Inspector's Table"
-
-[connection signal="pressed" from="MarginContainer/VBoxContainer/Play" to="." method="_on_play_pressed"]
-[connection signal="pressed" from="MarginContainer/VBoxContainer/Exit" to="." method="_on_exit_pressed"]
-[connection signal="pressed" from="MarginContainer/VBoxContainer/TexturePlay" to="." method="_on_texture_play_pressed"]
-[connection signal="pressed" from="MarginContainer/VBoxContainer/TexturePlay" to="." method="_on_texture_button_pressed"]
-[connection signal="pressed" from="MarginContainer/VBoxContainer/TextureExit" to="." method="_on_texture_exit_pressed"]
-[connection signal="pressed" from="MarginContainer/VBoxContainer/TextureExit" to="." method="_on_texture_button_pressed"]
+[connection signal="pressed" from="CanvasLayer/MarginContainer/VBoxContainer/Play" to="." method="_on_play_pressed"]
+[connection signal="pressed" from="CanvasLayer/MarginContainer/VBoxContainer/Exit" to="." method="_on_exit_pressed"]
+[connection signal="pressed" from="CanvasLayer/MarginContainer/VBoxContainer/TexturePlay" to="." method="_on_texture_play_pressed"]
+[connection signal="pressed" from="CanvasLayer/MarginContainer/VBoxContainer/TexturePlay" to="." method="_on_texture_button_pressed"]
+[connection signal="pressed" from="CanvasLayer/MarginContainer/VBoxContainer/TextureExit" to="." method="_on_texture_button_pressed"]
+[connection signal="pressed" from="CanvasLayer/MarginContainer/VBoxContainer/TextureExit" to="." method="_on_texture_exit_pressed"]

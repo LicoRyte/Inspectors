@@ -1,9 +1,12 @@
-[gd_scene load_steps=6 format=3 uid="uid://cvbi7p87jkpjh"]
+[gd_scene load_steps=7 format=3 uid="uid://cvbi7p87jkpjh"]
 
-[ext_resource type="Texture2D" uid="uid://ctbmf7cgw45ce" path="res://Assets/time1.png" id="1_25ttx"]
 [ext_resource type="Script" uid="uid://cpj0p75u18lwl" path="res://Script/countdown.gd" id="1_ismew"]
+[ext_resource type="Texture2D" uid="uid://crser5ox7buat" path="res://Assets/UI/time.png" id="2_ismew"]
 [ext_resource type="Shader" uid="uid://70kkkv0n0dxn" path="res://Shader/displacement.gdshader" id="2_sowme"]
 [ext_resource type="FontFile" uid="uid://cl1lla7t28egr" path="res://Assets/Fonts/PublicPixel-rv0pA.ttf" id="2_vshgv"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ismew"]
+bg_color = Color(0.6, 0.6, 0.6, 0)
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_ismew"]
 shader = ExtResource("2_sowme")
@@ -17,24 +20,23 @@ shader_parameter/seed = 42.0
 script = ExtResource("1_ismew")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
-texture = ExtResource("1_25ttx")
+texture = ExtResource("2_ismew")
 centered = false
 
 [node name="MarginContainer" type="MarginContainer" parent="Sprite2D"]
-offset_right = 230.0
-offset_bottom = 110.0
-theme_override_constants/margin_left = 8
-theme_override_constants/margin_top = 32
-theme_override_constants/margin_right = 8
-theme_override_constants/margin_bottom = 32
+offset_right = 115.0
+offset_bottom = 55.0
+theme_override_constants/margin_top = 16
+theme_override_constants/margin_bottom = 16
 
 [node name="Panel" type="Panel" parent="Sprite2D/MarginContainer"]
 layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_ismew")
 
 [node name="HBoxContainer" type="HBoxContainer" parent="Sprite2D/MarginContainer/Panel"]
 layout_mode = 0
-offset_right = 218.0
-offset_bottom = 110.0
+offset_right = 115.0
+offset_bottom = 55.0
 
 [node name="Label" type="Label" parent="Sprite2D/MarginContainer/Panel/HBoxContainer"]
 material = SubResource("ShaderMaterial_ismew")
@@ -44,7 +46,7 @@ size_flags_horizontal = 3
 size_flags_vertical = 1
 theme_override_constants/line_spacing = 8
 theme_override_fonts/font = ExtResource("2_vshgv")
-theme_override_font_sizes/font_size = 36
+theme_override_font_sizes/font_size = 20
 text = "12:30"
 horizontal_alignment = 1
 autowrap_mode = 2

@@ -4,7 +4,10 @@ var selected_situation: int = 1
 
 
 func random_situation():
-	selected_situation = randi_range(1,len(situation))
+	GameManager.intended_answer = []
+	print("do random")
+	selected_situation = randi_range(1,2)
+	print(selected_situation)
 
 
 var company = {
@@ -60,6 +63,49 @@ var situation = {
 			],
 			"transcript_sprite": transcript.get("default", null),
 			"is_corrupted": true
+		}
+	},
+	
+	2: {
+		"company": company.get("placeholder_company", null),
+		"ID1": {
+			"Intro": "MYA HARMONY",
+			"transcripts": [
+			"A",
+			"B", 
+			"", 
+			"", 
+			"", 
+			""
+			],
+			"transcript_sprite": transcript.get("default", null),
+			"is_corrupted": true
+		},
+		"ID2": {
+			"Intro": "LUKA SILOMOV",
+			"transcripts": [
+			"C", 
+			"", 
+			"", 
+			"", 
+			"", 
+			""
+			],
+			"transcript_sprite": transcript.get("default", null),
+			"is_corrupted": false
+		},
+		"ID3": {
+			"Intro": "ADAM TEZEL",
+			"transcripts": [
+			"D", 
+			"", 
+			"", 
+			"", 
+			"",
+			""
+			],
+			"transcript_sprite": transcript.get("default", null),
+			"is_corrupted": false
 		}
 	}
 }

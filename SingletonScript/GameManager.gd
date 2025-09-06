@@ -17,7 +17,7 @@ func set_main_cam(cam: AdvancedCamera):
 func _process(delta: float) -> void:
 	if not intended_answer:
 		for key in Situation.situation[Situation.selected_situation]:
-			var entry = Situation.situation[1][key]
+			var entry = Situation.situation[Situation.selected_situation][key]
 			if entry is Dictionary and entry.get("is_corrupted", false):
 				intended_answer.append(key)
 	selected_company = Situation.situation[Situation.selected_situation]["company"]
@@ -28,6 +28,7 @@ func _process(delta: float) -> void:
 			main_cam.zoom_out()
 	if intended_answer == player_answer:
 		print("ok")
+
 
 func _on_employee_vote_toggled(id: String, pressed: bool) -> void:
 	if pressed:

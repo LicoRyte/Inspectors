@@ -5,7 +5,7 @@
 [ext_resource type="FontFile" uid="uid://cl1lla7t28egr" path="res://Assets/Fonts/PublicPixel-rv0pA.ttf" id="2_vxiav"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_o0gax"]
-bg_color = Color(0.0470588, 0.0431373, 0.00392157, 0.423529)
+bg_color = Color(0.00859604, 0.015477, 0.0563632, 0.952941)
 border_width_left = 2
 border_width_top = 2
 border_width_right = 2
@@ -30,14 +30,14 @@ anchors_preset = 12
 anchor_top = 1.0
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_top = -201.0
+offset_top = -218.0
 offset_right = -23.0
 grow_horizontal = 2
 grow_vertical = 0
 scale = Vector2(1.01881, 0.997632)
 theme_override_constants/margin_left = 480
 theme_override_constants/margin_right = 72
-theme_override_constants/margin_bottom = 72
+theme_override_constants/margin_bottom = 90
 
 [node name="Panel" type="Panel" parent="dialogue/TextBoxContainer"]
 layout_mode = 2

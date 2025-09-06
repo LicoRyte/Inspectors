@@ -11,4 +11,4 @@ func _on_texture_exit_pressed() -> void:
 	get_tree().quit()
 
 func _ready () -> void:
-	pass
+	GlobalAudio.change_music("menu")

@@ -1,16 +1,12 @@
 [gd_scene load_steps=8 format=3 uid="uid://b7s0a7gc6r0cs"]
 
 [ext_resource type="Script" uid="uid://bc7evgdlrflw6" path="res://Script/ui.gd" id="1_nq5m3"]
+[ext_resource type="Texture2D" uid="uid://c78fuu8nt06mb" path="res://Assets/UI/skip_shift.png" id="2_f6k66"]
 [ext_resource type="Texture2D" uid="uid://dywxa7ewarcdt" path="res://Assets/company_placeholder.png" id="2_hskja"]
 [ext_resource type="Texture2D" uid="uid://d320888xp37o1" path="res://Assets/blue_trans_placeholder.png" id="3_f6k66"]
-[ext_resource type="Texture2D" uid="uid://j4c5op77ibqh" path="res://Assets/skip.png" id="4_i3p7b"]
 [ext_resource type="PackedScene" uid="uid://cvbi7p87jkpjh" path="res://Scene/countdown.tscn" id="5_fau5c"]
-
-[sub_resource type="PlaceholderTexture2D" id="PlaceholderTexture2D_ve4bg"]
-size = Vector2(90, 45)
-
-[sub_resource type="PlaceholderTexture2D" id="PlaceholderTexture2D_4wkfl"]
-size = Vector2(480, 32)
+[ext_resource type="Texture2D" uid="uid://57awgw5rldtu" path="res://Assets/UI/pull down.png" id="6_hskja"]
+[ext_resource type="Texture2D" uid="uid://dwv4dhvgcl10m" path="res://Assets/UI/company flipper.png" id="6_nq5m3"]
 
 [node name="UI Panel" type="CanvasLayer"]
 script = ExtResource("1_nq5m3")
@@ -23,16 +19,16 @@ anchor_right = 1.0
 offset_bottom = 158.0
 grow_horizontal = 2
 mouse_filter = 2
-theme_override_constants/margin_left = 1112
+theme_override_constants/margin_left = 1184
 theme_override_constants/margin_top = 48
 
 [node name="TextureButton" type="TextureButton" parent="timer/MarginContainer"]
 layout_mode = 2
-texture_normal = ExtResource("4_i3p7b")
-texture_pressed = ExtResource("4_i3p7b")
+texture_normal = ExtResource("2_f6k66")
+texture_pressed = ExtResource("2_f6k66")
 
 [node name="countdown" parent="timer/MarginContainer" instance=ExtResource("5_fau5c")]
-position = Vector2(48, 48)
+position = Vector2(1055, 47)
 
 [node name="hand_ui" type="CanvasLayer" parent="."]
 
@@ -85,11 +81,11 @@ offset_right = 234.0
 offset_bottom = 393.0
 
 [node name="exit_button" type="TextureButton" parent="."]
-offset_left = 135.0
-offset_top = 46.0
-offset_right = 225.0
-offset_bottom = 91.0
-texture_normal = SubResource("PlaceholderTexture2D_ve4bg")
+offset_left = 248.0
+offset_top = 565.0
+offset_right = 344.0
+offset_bottom = 609.0
+texture_normal = ExtResource("6_hskja")
 
 [node name="company_button_subpanel" type="CanvasLayer" parent="."]
 
@@ -98,7 +94,7 @@ anchors_preset = 12
 anchor_top = 1.0
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_top = -77.0
+offset_top = -58.0
 offset_right = 8.0
 grow_horizontal = 2
 grow_vertical = 0
@@ -107,7 +103,7 @@ theme_override_constants/margin_left = 400
 
 [node name="company_button" type="TextureButton" parent="company_button_subpanel/MarginContainer"]
 layout_mode = 2
-texture_normal = SubResource("PlaceholderTexture2D_4wkfl")
+texture_normal = ExtResource("6_nq5m3")
 
 [connection signal="pressed" from="transcript_menu_subpanel/trans1" to="." method="_on_trans_1_pressed"]
 [connection signal="button_down" from="transcript_menu_subpanel/trans2" to="." method="_on_trans_2_button_down"]

@@ -5,11 +5,12 @@ var fade_time = 0.2
 @onready var bg_player: AudioStreamPlayer = $AudioStreamPlayer
 
 var music = {
-	"darkatmos" : preload("res://Assets/Music/Dark _Atmosphere13_Looped_24bit.wav")
+	"darkatmos" : preload("res://Assets/Music/Dark _Atmosphere13_Looped_24bit.wav"),
+	"menu" : preload("res://Assets/Music/The Oldest Mage.ogg")
 }
 
 var sound_effect = {
-	
+
 }
 
 

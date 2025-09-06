@@ -57,6 +57,7 @@ theme_override_constants/margin_right = 16
 theme_override_constants/margin_bottom = 16
 
 [node name="Panel" type="Panel" parent="Text/Win_Lose/Panel/MarginContainer"]
+visible = false
 layout_mode = 2
 
 [node name="HBoxContainer" type="HBoxContainer" parent="Text/Win_Lose/Panel/MarginContainer"]

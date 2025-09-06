@@ -1,7 +1,8 @@
-[gd_scene load_steps=4 format=3 uid="uid://dn1w4encsdw0r"]
+[gd_scene load_steps=6 format=3 uid="uid://dn1w4encsdw0r"]
 
 [ext_resource type="Shader" uid="uid://br0bs5q7ps18g" path="res://Shader/CRT.gdshader" id="1_eljvu"]
 [ext_resource type="Script" uid="uid://giop88n2mu8g" path="res://Script/post_processing.gd" id="1_w4fxx"]
+[ext_resource type="Shader" uid="uid://b8lkvvam682rm" path="res://Shader/TV.gdshader" id="3_ob22h"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_w4fxx"]
 shader = ExtResource("1_eljvu")
@@ -13,12 +14,30 @@ shader_parameter/pixel_factor = 2.0
 shader_parameter/enable_posterize = true
 shader_parameter/color_levels = 8.0
 shader_parameter/dither_strength = 0.35
-shader_parameter/chrom_aberration = 0.02
+shader_parameter/chrom_aberration = 0.015
 shader_parameter/vignette_strength = 1.5
-shader_parameter/grain_strength = 0.2
+shader_parameter/grain_strength = 0.1
 shader_parameter/tint_color = Vector3(0.95, 1.03, 0.9)
 shader_parameter/tint_strength = 0.15
 shader_parameter/viewport_size_override = Vector2(0, 0)
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_tikby"]
+shader = ExtResource("3_ob22h")
+shader_parameter/screen_size = Vector2(320, 180)
+shader_parameter/show_curvature = true
+shader_parameter/curvature_x_amount = 5.0
+shader_parameter/curvature_y_amount = 5.0
+shader_parameter/corner_color = Color(0, 0, 0, 1)
+shader_parameter/show_vignette = false
+shader_parameter/vignette_opacity = 0.0
+shader_parameter/show_horizontal_scan_lines = false
+shader_parameter/horizontal_scan_lines_amount = 180.0
+shader_parameter/horizontal_scan_lines_opacity = 0.1
+shader_parameter/show_vertical_scan_lines = false
+shader_parameter/vertical_scan_lines_amount = 320.0
+shader_parameter/vertical_scan_lines_opacity = 1.0
+shader_parameter/boost = 1.2
+shader_parameter/aberration_amount = 0.0
 
 [node name="Post-Processing" type="CanvasLayer"]
 layer = 3
@@ -26,6 +45,18 @@ script = ExtResource("1_w4fxx")
 
 [node name="CRT" type="ColorRect" parent="."]
 material = SubResource("ShaderMaterial_w4fxx")
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(1, 0.997939)
+mouse_filter = 2
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="CRT2" type="ColorRect" parent="CanvasLayer"]
+material = SubResource("ShaderMaterial_tikby")
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0

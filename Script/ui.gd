@@ -52,7 +52,8 @@ func _process(delta: float) -> void:
 		exit_button.show()
 		for i in trans_buttons.size():
 			trans_buttons[i].show()
-	
+	print(GameManager.intended_answer)
+	print(GameManager.player_answer)
 
 func _on_transcript_pressed(index: int) -> void:
 	if visibility_lock:

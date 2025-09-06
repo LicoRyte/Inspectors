@@ -1,0 +1,19 @@
+[remap]
+
+importer="oggvorbisstr"
+type="AudioStreamOggVorbis"
+uid="uid://bqfi8f4ciy41i"
+path="res://.godot/imported/The Oldest Mage.ogg-1a3f3290ed3b19902e8dd7565f80bdbf.oggvorbisstr"
+
+[deps]
+
+source_file="res://Assets/Music/The Oldest Mage.ogg"
+dest_files=["res://.godot/imported/The Oldest Mage.ogg-1a3f3290ed3b19902e8dd7565f80bdbf.oggvorbisstr"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4
