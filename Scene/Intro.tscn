@@ -1,0 +1,113 @@
+[gd_scene load_steps=8 format=3 uid="uid://kee3nqpgucws"]
+
+[ext_resource type="Texture2D" uid="uid://bf66805elmtgd" path="res://Assets/Untitled.png" id="1_5imrf"]
+[ext_resource type="Script" uid="uid://d1eh4gm83mceh" path="res://Scene/intro.gd" id="2_we6c8"]
+[ext_resource type="FontFile" uid="uid://cl1lla7t28egr" path="res://Assets/Fonts/PublicPixel-rv0pA.ttf" id="3_60ts5"]
+
+[sub_resource type="Animation" id="Animation_we6c8"]
+resource_name = "Fade in"
+length = 3.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("ColorRect:color")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(1, 3),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(0, 0, 0, 1), Color(0, 0, 0, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_60ts5"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("ColorRect:color")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(0, 0, 0, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_m1ph0"]
+resource_name = "Fade out"
+length = 3.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("ColorRect:color")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(1, 2.5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(0, 0, 0, 0), Color(0, 0, 0, 1)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_lebhk"]
+_data = {
+&"Fade in": SubResource("Animation_we6c8"),
+&"Fade out": SubResource("Animation_m1ph0"),
+&"RESET": SubResource("Animation_60ts5")
+}
+
+[node name="Intro" type="Sprite2D"]
+position = Vector2(636.665, 361.875)
+scale = Vector2(0.287945, 0.226446)
+texture = ExtResource("1_5imrf")
+script = ExtResource("2_we6c8")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+&"": SubResource("AnimationLibrary_lebhk")
+}
+autoplay = "Fade in"
+
+[node name="MarginContainer" type="MarginContainer" parent="."]
+anchors_preset = 10
+anchor_right = 1.0
+offset_left = -2199.0
+offset_top = -1581.0
+offset_right = -2199.0
+offset_bottom = 901.0
+grow_horizontal = 2
+
+[node name="Label2" type="Label" parent="MarginContainer"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("3_60ts5")
+theme_override_font_sizes/font_size = 159
+text = "A Game By"
+horizontal_alignment = 1
+
+[node name="MarginContainer2" type="MarginContainer" parent="."]
+anchors_preset = 12
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -2199.0
+offset_top = -4501.0
+offset_right = -2199.0
+offset_bottom = -1582.0
+grow_horizontal = 2
+grow_vertical = 0
+
+[node name="Label3" type="Label" parent="MarginContainer2"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("3_60ts5")
+theme_override_font_sizes/font_size = 280
+text = "SEPTEEN"
+horizontal_alignment = 1
+
+[node name="ColorRect" type="ColorRect" parent="."]
+offset_left = -2199.0
+offset_top = -1338.0
+offset_right = 2200.0
+offset_bottom = 1581.0
+color = Color(0, 0, 0, 1)

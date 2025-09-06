@@ -12,3 +12,5 @@ func _on_texture_exit_pressed() -> void:
 
 func _ready () -> void:
 	GlobalAudio.change_music("menu")
+	$CanvasLayer/AnimationPlayer.play("Fade out")
+	await(get_tree().create_timer(3).timeout)
