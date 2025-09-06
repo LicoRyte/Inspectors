@@ -71,12 +71,12 @@ var situation = {
 		"ID1": {
 			"Intro": "MYA HARMONY",
 			"transcripts": [
-			"A",
-			"B", 
-			"", 
-			"", 
-			"", 
-			""
+			"Luka give me my money back.",
+			"just get some rest at the beach.", 
+			"I did won a lottery, My luck is going up.", 
+			"My makeup brand that I use lunch a new product and I need it.", 
+			"it's just literally went to my bank account, I have no idea.", 
+			"it's the bonus from you."
 			],
 			"transcript_sprite": transcript.get("default", null),
 			"is_corrupted": true
@@ -84,12 +84,12 @@ var situation = {
 		"ID2": {
 			"Intro": "LUKA SILOMOV",
 			"transcripts": [
-			"C", 
-			"", 
-			"", 
-			"", 
-			"", 
-			""
+			"I had taken out loans from informal sources, and in order to settle all of them, I borrowed money from Adam Tezel, and I paid him back.", 
+			"that's for the dinner with my girlfriend.", 
+			"My 3D model sold out that's make a lot of money.", 
+			"I went to the golf club and have some fun.", 
+			"I went to the casino and that day it's my lucky day.", 
+			"it's the bonus of the resterant"
 			],
 			"transcript_sprite": transcript.get("default", null),
 			"is_corrupted": false
@@ -97,12 +97,12 @@ var situation = {
 		"ID3": {
 			"Intro": "ADAM TEZEL",
 			"transcripts": [
-			"D", 
-			"", 
-			"", 
-			"", 
-			"",
-			""
+			"Luka returned my money, but I don't know what he borrowed it for though.", 
+			"I got a dinner.... alone.", 
+			"I bought a gift for my mom, try to be a good son you know.", 
+			"I got a big big tip from the customer.", 
+			"My mom need a money for her car installments.",
+			"It's the bouns of this month."
 			],
 			"transcript_sprite": transcript.get("default", null),
 			"is_corrupted": false

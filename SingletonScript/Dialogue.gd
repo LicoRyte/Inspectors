@@ -14,7 +14,6 @@ func hide_textbox():
 func show_textbox():
 	container.show()
 
-
 func add_text(next_text: String, sound: AudioStream = null):
 	# If a tween is already running, kill it
 	if active_tween and active_tween.is_running():
