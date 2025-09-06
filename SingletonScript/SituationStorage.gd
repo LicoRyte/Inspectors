@@ -12,7 +12,7 @@ func random_situation():
 
 var company = {
 	"placeholder_company": preload("res://Assets/company_placeholder.png"),
-	"company_1" : preload("res://Assets/transcript/company_tran1.png"),
+	"company_1" : preload("res://Assets/transcript/company_tran1.png") ,
 	"company_2" : preload("res://Assets/transcript/company_tran2.png")
 }
 
@@ -107,7 +107,7 @@ var situation = {
 			"I bought a gift for my mom, try to be a good son you know.", 
 			"I got a big big tip from the customer.", 
 			"My mom need a money for her car installments.",
-			"It's the bouns of this month."
+			"It's the bonus of this month."
 			],
 			"transcript_sprite": transcript.get("adam_tran2", null),
 			"is_corrupted": false

@@ -3,8 +3,8 @@
 [ext_resource type="Script" uid="uid://bc7evgdlrflw6" path="res://Script/ui.gd" id="1_nq5m3"]
 [ext_resource type="Texture2D" uid="uid://c78fuu8nt06mb" path="res://Assets/UI/skip_shift.png" id="2_f6k66"]
 [ext_resource type="Texture2D" uid="uid://dywxa7ewarcdt" path="res://Assets/company_placeholder.png" id="2_hskja"]
-[ext_resource type="Texture2D" uid="uid://d320888xp37o1" path="res://Assets/blue_trans_placeholder.png" id="3_f6k66"]
 [ext_resource type="PackedScene" uid="uid://cvbi7p87jkpjh" path="res://Scene/countdown.tscn" id="5_fau5c"]
+[ext_resource type="Texture2D" uid="uid://boydx4133gd0h" path="res://Assets/transcript/Adam_tran1.png" id="5_hskja"]
 [ext_resource type="Texture2D" uid="uid://57awgw5rldtu" path="res://Assets/UI/pull down.png" id="6_hskja"]
 [ext_resource type="Texture2D" uid="uid://dwv4dhvgcl10m" path="res://Assets/UI/company flipper.png" id="6_nq5m3"]
 
@@ -38,47 +38,52 @@ texture = ExtResource("2_hskja")
 centered = false
 
 [node name="transcript_sprite" type="Sprite2D" parent="hand_ui"]
-position = Vector2(0, 720)
-texture = ExtResource("3_f6k66")
+texture = ExtResource("5_hskja")
 centered = false
 
 [node name="transcript_menu_subpanel" type="CanvasLayer" parent="."]
 
 [node name="trans1" type="Button" parent="transcript_menu_subpanel"]
-offset_left = 127.0
-offset_top = 186.0
-offset_right = 223.0
-offset_bottom = 210.0
+modulate = Color(1, 1, 1, 0.0941176)
+offset_left = 144.0
+offset_top = 115.0
+offset_right = 444.0
+offset_bottom = 139.0
 
 [node name="trans2" type="Button" parent="transcript_menu_subpanel"]
-offset_left = 130.0
-offset_top = 221.0
-offset_right = 226.0
-offset_bottom = 245.0
+modulate = Color(1, 1, 1, 0.0941176)
+offset_left = 141.0
+offset_top = 155.0
+offset_right = 441.0
+offset_bottom = 179.0
 
 [node name="trans3" type="Button" parent="transcript_menu_subpanel"]
-offset_left = 130.0
-offset_top = 251.0
-offset_right = 226.0
-offset_bottom = 275.0
+modulate = Color(1, 1, 1, 0.0941176)
+offset_left = 142.0
+offset_top = 194.0
+offset_right = 442.0
+offset_bottom = 218.0
 
 [node name="trans4" type="Button" parent="transcript_menu_subpanel"]
-offset_left = 130.0
-offset_top = 291.0
-offset_right = 226.0
-offset_bottom = 315.0
+modulate = Color(1, 1, 1, 0.0941176)
+offset_left = 144.0
+offset_top = 238.0
+offset_right = 444.0
+offset_bottom = 262.0
 
 [node name="trans5" type="Button" parent="transcript_menu_subpanel"]
-offset_left = 133.0
-offset_top = 327.0
-offset_right = 229.0
-offset_bottom = 351.0
+modulate = Color(1, 1, 1, 0.0941176)
+offset_left = 148.0
+offset_top = 283.0
+offset_right = 448.0
+offset_bottom = 307.0
 
 [node name="trans6" type="Button" parent="transcript_menu_subpanel"]
-offset_left = 138.0
-offset_top = 369.0
-offset_right = 234.0
-offset_bottom = 393.0
+modulate = Color(1, 1, 1, 0.0941176)
+offset_left = 145.0
+offset_top = 329.0
+offset_right = 445.0
+offset_bottom = 353.0
 
 [node name="exit_button" type="TextureButton" parent="."]
 offset_left = 248.0

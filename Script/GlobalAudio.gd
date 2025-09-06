@@ -14,7 +14,8 @@ var sound_effect = {
 	"riser": preload("res://Assets/Music/sfx/riser.mp3"),
 	"paper": preload("res://Assets/Music/sfx/paperflutter.ogg"),
 	"shift_end": preload("res://Assets/Music/sfx/shift_end.ogg"),
-	"type": preload("res://Assets/Music/sfx/typewriter.ogg")
+	"type": preload("res://Assets/Music/sfx/typewriter.ogg"),
+	"type2": preload("res://Assets/Music/sfx/typewriter.wav")
 }
 
 
@@ -26,11 +27,16 @@ func change_music(new_music: String):
 		# Fade out current music
 		tween.tween_property(bg_player, "volume_db", -80, fade_time)
 		tween.tween_callback(func():
-			# Set new music and reset volume
 			bg_player.stream = music[new_music]
 			bg_player.volume_db = -15
 			bg_player.play()
 		)
+
+func stop_music():
+		var tween = create_tween()
+		# Fade out current music
+		tween.tween_property(bg_player, "volume_db", -80, fade_time)
+	
 
 func effect(sfx: String):
 	var audio = AudioStreamPlayer.new()

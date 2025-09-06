@@ -1,8 +1,7 @@
-[gd_scene load_steps=8 format=3 uid="uid://dhral8no4hvs7"]
+[gd_scene load_steps=7 format=3 uid="uid://cf2wfrrop6obd"]
 
-[ext_resource type="Texture2D" uid="uid://bf66805elmtgd" path="res://Assets/Untitled.png" id="1_5imrf"]
-[ext_resource type="Script" uid="uid://d1eh4gm83mceh" path="res://Scene/intro.gd" id="2_we6c8"]
-[ext_resource type="FontFile" uid="uid://cl1lla7t28egr" path="res://Assets/Fonts/PublicPixel-rv0pA.ttf" id="3_60ts5"]
+[ext_resource type="FontFile" uid="uid://cl1lla7t28egr" path="res://Assets/Fonts/PublicPixel-rv0pA.ttf" id="1_5l5cn"]
+[ext_resource type="PackedScene" uid="uid://dhral8no4hvs7" path="res://Scene/Intro.tscn" id="1_t7jfh"]
 
 [sub_resource type="Animation" id="Animation_we6c8"]
 resource_name = "Fade in"
@@ -58,11 +57,10 @@ _data = {
 &"RESET": SubResource("Animation_60ts5")
 }
 
-[node name="Intro" type="Sprite2D"]
-position = Vector2(636.665, 361.875)
-scale = Vector2(0.287945, 0.226446)
-texture = ExtResource("1_5imrf")
-script = ExtResource("2_we6c8")
+[node name="New_Intro" type="Node2D"]
+
+[node name="Intro" parent="." instance=ExtResource("1_t7jfh")]
+position = Vector2(632, 359)
 
 [node name="MarginContainer" type="MarginContainer" parent="."]
 anchors_preset = 10
@@ -75,7 +73,7 @@ grow_horizontal = 2
 
 [node name="Label2" type="Label" parent="MarginContainer"]
 layout_mode = 2
-theme_override_fonts/font = ExtResource("3_60ts5")
+theme_override_fonts/font = ExtResource("1_5l5cn")
 theme_override_font_sizes/font_size = 159
 text = "A Game By"
 horizontal_alignment = 1
@@ -94,16 +92,16 @@ grow_vertical = 0
 
 [node name="Label3" type="Label" parent="MarginContainer2"]
 layout_mode = 2
-theme_override_fonts/font = ExtResource("3_60ts5")
+theme_override_fonts/font = ExtResource("1_5l5cn")
 theme_override_font_sizes/font_size = 280
 text = "SEPTEEN"
 horizontal_alignment = 1
 
 [node name="ColorRect" type="ColorRect" parent="."]
-offset_left = -2199.0
-offset_top = -1338.0
-offset_right = 2200.0
-offset_bottom = 1581.0
+offset_left = 2333.0
+offset_top = 269.0
+offset_right = 6732.0
+offset_bottom = 3188.0
 color = Color(0, 0, 0, 1)
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]

@@ -52,8 +52,6 @@ func _process(delta: float) -> void:
 		exit_button.show()
 		for i in trans_buttons.size():
 			trans_buttons[i].show()
-	print(GameManager.intended_answer)
-	print(GameManager.player_answer)
 
 func _on_transcript_pressed(index: int) -> void:
 	if visibility_lock:
@@ -70,14 +68,15 @@ func pull_up(script: Texture2D = null):
 	if GameManager.selected_employee:
 		transcript_sprite.position.y = lerp(transcript_sprite.position.y, 0.0, get_process_delta_time() * 12)
 		transcript_sprite.texture = script
-
 func pull_down():
 	transcript_sprite.position.y = lerp(transcript_sprite.position.y, 720.0, get_process_delta_time() * 12)
 
 func _on_exit_button_pressed() -> void:
-		print("selected reset")
-		Dialogue.hide_textbox()
-		GameManager.selected_employee = null
+	GlobalAudio.change_music("menu")
+	GlobalAudio.effect("paper")
+	print("selected reset")
+	Dialogue.hide_textbox()
+	GameManager.selected_employee = null
 func pull_company_up():
 	company_transcript.texture = GameManager.selected_company
 	company_transcript.global_position.y = move_toward(company_transcript.global_position.y, 0.0, get_process_delta_time() * 3000)
@@ -91,5 +90,6 @@ func _on_company_button_mouse_exited() -> void:
 	pulled = false
 	GlobalAudio.effect("paper")
 func _on_skip_shift_pressed():
+	Dialogue.locked = true
 	Events.emit_signal("_on_shift_ended")
 	GlobalAudio.effect("shift_end")

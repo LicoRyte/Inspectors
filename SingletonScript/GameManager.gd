@@ -6,6 +6,8 @@ var selected_company: Texture2D = null
 var intended_answer = []
 var player_answer = []
 
+var _shift_ended_fired := false
+
 func _ready() -> void:
 	Events._on_shift_ended.connect(_on_shift_ended)
 	if not Events.employee_vote_toggled.is_connected(_on_employee_vote_toggled):
@@ -38,11 +40,17 @@ func _on_employee_vote_toggled(id: String, pressed: bool) -> void:
 	else:
 		player_answer.erase(id)
 
-func _on_shift_ended():
-	Dialogue.hide_textbox()
-	Scene.Shift("shift_end")
-	await Events._transitioned
-	await get_tree().create_timer(5.0).timeout
+
+func _on_shift_ended() -> void:
+	if _shift_ended_fired:
+		return
+	_shift_ended_fired = true
 	
+	Dialogue.hide_textbox()
+	Dialogue.locked = true
+	Scene.Shift("shift_end")
+	await get_tree().create_timer(5.0).timeout
+	Dialogue.locked = false
 	Scene.Change("summary")
+	_shift_ended_fired = false
 	

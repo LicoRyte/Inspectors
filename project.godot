@@ -11,7 +11,7 @@ config_version=5
 [application]
 
 config/name="Inspector's Table"
-run/main_scene="uid://kee3nqpgucws"
+run/main_scene="uid://xnpulsug6gsu"
 config/features=PackedStringArray("4.4", "Forward Plus")
 boot_splash/image="uid://tswf11a1ejir"
 config/icon="res://icon.svg"
@@ -22,7 +22,6 @@ Events="*res://SingletonScript/GlobalEvents.gd"
 GameManager="*res://SingletonScript/GameManager.gd"
 Scene="*res://SingletonScript/SceneChanger.tscn"
 Situation="*res://SingletonScript/SituationStorage.gd"
-UI="res://Scene/UI.tscn"
 Dialogue="*res://Scene/Dialogue.tscn"
 PostProcessing="*res://Scene/post_processing.tscn"
 GlobalTimer="*res://SingletonScript/GlobalTimer.gd"
@@ -64,7 +63,6 @@ glossary/default_case_sensitive=true
 
 window/size/viewport_width=1280
 window/size/viewport_height=720
-window/size/mode=3
 window/stretch/mode="canvas_items"
 
 [input]

@@ -19,6 +19,7 @@ enum employee_ID {
 @export var is_voted: bool = false
 
 var ID: String
+var locked: bool = false
 
 func _ready() -> void:
 	super()
@@ -45,8 +46,9 @@ func _process(delta: float) -> void:
 	
 
 func _on_input_event(_viewport: Node, event: InputEvent, _shape_idx: int) -> void:
-	if not GameManager.selected_employee:
+	if not GameManager.selected_employee and not locked:
 		if event is InputEventMouseButton and event.pressed:
+			GlobalAudio.effect("paper")
 			GameManager.selected_employee = self
 			Dialogue.add_text(intro_message)
 
@@ -59,3 +61,9 @@ func _on_mouse_exited() -> void:
 func _on_flag_toggled(pressed: bool) -> void:
 	is_voted = pressed
 	Events.emit_signal("employee_vote_toggled",ID, pressed)
+
+func _exited():
+	locked = true
+
+func _game_enter():
+	locked = false

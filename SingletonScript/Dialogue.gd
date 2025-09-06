@@ -4,6 +4,8 @@ extends CanvasLayer
 @onready var text: Label = $dialogue/TextBoxContainer/MarginContainer/HBoxContainer/Label
 var active_tween: Tween
 
+var locked = false
+
 func _ready() -> void:
 	hide_textbox()
 
@@ -12,7 +14,8 @@ func hide_textbox():
 	container.hide()
 	
 func show_textbox():
-	container.show()
+	if not locked:
+		container.show()
 
 func add_text(next_text: String, sound: AudioStream = null):
 	# If a tween is already running, kill it
@@ -28,7 +31,7 @@ func add_text(next_text: String, sound: AudioStream = null):
 	var chars := next_text.length()
 	var time_per_char := 0.02
 	var duration := chars * time_per_char
-	var time_delay := 0.15
+	var time_delay := 0.05
 
 	# New tween
 	active_tween = get_tree().create_tween()
@@ -38,8 +41,8 @@ func add_text(next_text: String, sound: AudioStream = null):
 
 
 	# play sound while text is appearing
-	if GlobalAudio.sound_effect["type"]:
-		_play_character_sounds(time_delay, GlobalAudio.sound_effect["type"])
+	if GlobalAudio.sound_effect["type2"]:
+		_play_character_sounds(time_delay, GlobalAudio.sound_effect["type2"])
 
 func _play_character_sounds(delay: float, sound: AudioStream) -> void:
 

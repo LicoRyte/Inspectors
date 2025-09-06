@@ -1,8 +1,8 @@
-[gd_scene load_steps=8 format=3 uid="uid://dhral8no4hvs7"]
+[gd_scene load_steps=8 format=3 uid="uid://xnpulsug6gsu"]
 
-[ext_resource type="Texture2D" uid="uid://bf66805elmtgd" path="res://Assets/Untitled.png" id="1_5imrf"]
-[ext_resource type="Script" uid="uid://d1eh4gm83mceh" path="res://Scene/intro.gd" id="2_we6c8"]
-[ext_resource type="FontFile" uid="uid://cl1lla7t28egr" path="res://Assets/Fonts/PublicPixel-rv0pA.ttf" id="3_60ts5"]
+[ext_resource type="Texture2D" uid="uid://bf66805elmtgd" path="res://Assets/Untitled.png" id="1_tfgu8"]
+[ext_resource type="Script" uid="uid://d1eh4gm83mceh" path="res://Scene/intro.gd" id="2_h4mui"]
+[ext_resource type="FontFile" uid="uid://cl1lla7t28egr" path="res://Assets/Fonts/PublicPixel-rv0pA.ttf" id="3_06usk"]
 
 [sub_resource type="Animation" id="Animation_we6c8"]
 resource_name = "Fade in"
@@ -61,8 +61,8 @@ _data = {
 [node name="Intro" type="Sprite2D"]
 position = Vector2(636.665, 361.875)
 scale = Vector2(0.287945, 0.226446)
-texture = ExtResource("1_5imrf")
-script = ExtResource("2_we6c8")
+texture = ExtResource("1_tfgu8")
+script = ExtResource("2_h4mui")
 
 [node name="MarginContainer" type="MarginContainer" parent="."]
 anchors_preset = 10
@@ -75,7 +75,7 @@ grow_horizontal = 2
 
 [node name="Label2" type="Label" parent="MarginContainer"]
 layout_mode = 2
-theme_override_fonts/font = ExtResource("3_60ts5")
+theme_override_fonts/font = ExtResource("3_06usk")
 theme_override_font_sizes/font_size = 159
 text = "A Game By"
 horizontal_alignment = 1
@@ -94,7 +94,7 @@ grow_vertical = 0
 
 [node name="Label3" type="Label" parent="MarginContainer2"]
 layout_mode = 2
-theme_override_fonts/font = ExtResource("3_60ts5")
+theme_override_fonts/font = ExtResource("3_06usk")
 theme_override_font_sizes/font_size = 280
 text = "SEPTEEN"
 horizontal_alignment = 1
